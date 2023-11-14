@@ -10,8 +10,8 @@ namespace OnlineStore.User
     {
         #region Attributes
 
-        string email;
-        string password;
+        public string email;
+        public string password;
         private bool isAdmin;
         private bool isEmailConfirmed;
         private bool isCostumer;
@@ -42,24 +42,16 @@ namespace OnlineStore.User
 
         public string Password
         {
-            set => password = value;
             get { return password; }
+            set => password = value; 
         }
 
         #endregion
 
         #region Overrides
-
         #endregion
 
         #region OtherMethods
-
-        #endregion
-
-        #region Destructor
-
-        ~User() { }
-
         #endregion
 
         #endregion

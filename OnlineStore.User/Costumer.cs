@@ -10,11 +10,12 @@ namespace OnlineStore.User
     {
         #region Atributes
 
-        private string userName;
+        private string name;
         private string address;
-        private UInt32 zipCode;
-        private UInt32 phoneNumber;
-        private UInt32 nif;
+        private int zipCode;
+        private int phoneNumber;
+        private int nif;
+        private static int numCostumers = 0;
 
         #endregion
 
@@ -22,15 +23,23 @@ namespace OnlineStore.User
 
         #region Constructors
 
-        public Costumer(string email, string password) : base(email, password)
+        static Costumer() => numCostumers = 0;
+
+        public Costumer() 
         {
-            this.Email = email;
-            this.Password = password;
+            email = string.Empty;
+            password = string.Empty;
+            name = string.Empty;
+            address = string.Empty; 
+            zipCode = 0;
+            phoneNumber = 0;
+            nif = 0;
         }
 
-        public Costumer(string userName, string address, uint zipCode, uint phoneNumber, uint nif) : this(userName, address)
+        public Costumer(string name, string email, string password) : base(email, password) => this.name = name;
+
+        public Costumer(string address, int zipCode, int phoneNumber, int nif) 
         {
-            this.userName = userName;
             this.address = address;
             this.zipCode = zipCode;
             this.phoneNumber = phoneNumber;
@@ -43,8 +52,8 @@ namespace OnlineStore.User
 
         public string UserName
         {
-            set => this.userName = value;
-            get { return this.userName; }
+            set => this.name = value;
+            get { return this.name; }
         }
 
         public string Address
@@ -53,22 +62,70 @@ namespace OnlineStore.User
             get { return this.address; }
         }
 
-        public UInt32 ZipCode
+        public int ZipCode
         {
-            set => this.zipCode = value;
+        set 
+        { 
+             if (value < 7)
+             this.zipCode = value; 
+        }
             get { return this.zipCode; }
         }
 
-        public UInt32 PhoneNumber
+        public int PhoneNumber
         {
-            set => this.phoneNumber = value;
+            set
+            {
+                if (value < 9)
+                this.phoneNumber = value;
+            }
             get { return this.phoneNumber; }
         }
 
-        public UInt32 Nif
+        public int Nif
         {
-            set => this.nif = value;
+            set
+            {
+                if (value < 9)
+                this.nif = value;
+            }
             get { return this.nif; }
+        }
+
+        #endregion
+
+        #region Overrides
+
+        public override string ToString()
+        {
+            return CostumerInfo();
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if(obj is Costumer)
+            {
+                Costumer c = (Costumer)obj;
+                if(this == c)
+                    return true;
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region OtherMethods
+
+        public string CostumerInfo()
+        {
+            return string.Format("Name: {0}, Email: {1}, Password: {2}, Address: {3}, ZipCode: {4}, PhoneNumber: {5}, NIF: {6}", name, email, password, address, zipCode, phoneNumber, nif);
+        }
+
+        public bool ExistCostumer(Costumer[] costumers, int nif)
+        {
+            foreach (Costumer c in costumers)
+                if (c.nif == nif) return true;
+            return false;
         }
 
         #endregion

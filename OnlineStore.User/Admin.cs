@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace OnlineStore.User
 {
@@ -10,9 +13,9 @@ namespace OnlineStore.User
     {
         #region Attributes
 
-        private string adminEmail;
-        private string adminPassword;
         private string adminUsername;
+        private int adminKey;
+        private static int numAdmin = 0;
 
         #endregion
 
@@ -20,17 +23,25 @@ namespace OnlineStore.User
 
         #region Constructors
 
+        static Admin() => numAdmin = 0;
+
         public Admin()
         {
+            email = string.Empty;
+            password = string.Empty;
+            adminUsername = string.Empty;
+            adminKey = 0;
         }
 
-        public Admin(string email, string password) : base(email, password)
+        public Admin(string email, string password, int key) : base(email, password)
         {
+            this.adminKey = key;
         }
 
-        public Admin(string username, string email, string password) : base(email, password)
+        public Admin(string username, string email, string password, int key) : base(email, password)
         {
             this.adminUsername = username;
+            this.adminKey = key;
         }
 
         #endregion
@@ -43,26 +54,52 @@ namespace OnlineStore.User
             get { return adminUsername; }
         }
 
-        public string AdminEmail
+        public int AdminKey
         {
-            set => adminEmail = value;
-            get { return adminEmail; }
-        }
-
-        public string AdminPassword
-        {
-            set => adminPassword = value;
-            get { return adminPassword; }
+            set
+            {
+                if (value < 12)
+                   adminKey = value;
+            }
+            get { return adminKey; }
         }
 
         #endregion
+
+        #region Overrides
+
+        public override string ToString()
+        {
+            return AdminInfo();
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Admin)
+            {
+                Admin a = (Admin)obj;
+                if (this == a)
+                    return true;
+            }
+            return false;
+        }
+
+        #endregion
+
 
         #region OtherMethods
-        #endregion
 
-        #region Destructor
+        public string AdminInfo()
+        {
+            return string.Format("Name: {0}, Email: {1}, Password: {2}, Key: {3}", adminUsername, email, password, adminKey);
+        }
 
-        ~Admin() { }
+        public bool ExistAdmin(Admin[] admins, int key)
+        {
+            foreach (Admin a in admins)
+                if (a.AdminKey == key) return true;
+            return false;
+        }
 
         #endregion
 
