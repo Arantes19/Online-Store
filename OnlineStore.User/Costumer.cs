@@ -66,7 +66,7 @@ namespace OnlineStore.User
         {
         set 
         { 
-             if (value < 7)
+             if (value > 0)
              this.zipCode = value; 
         }
             get { return this.zipCode; }
@@ -76,7 +76,7 @@ namespace OnlineStore.User
         {
             set
             {
-                if (value < 9)
+                if (value > 0)
                 this.phoneNumber = value;
             }
             get { return this.phoneNumber; }
@@ -86,7 +86,7 @@ namespace OnlineStore.User
         {
             set
             {
-                if (value < 9)
+                if (value > 0)
                 this.nif = value;
             }
             get { return this.nif; }

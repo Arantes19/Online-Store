@@ -30,6 +30,15 @@ namespace OnlineStore.User
 
         #endregion
 
+        #region Properties
+
+        public Admin[] AllAdmins
+        {
+            get { return admins; }
+        }
+
+        #endregion
+
 
         #region OtherMethods
 

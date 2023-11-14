@@ -30,6 +30,14 @@ namespace OnlineStore.User
 
         #endregion
 
+        #region Properties
+
+        public Costumer[] AllCostumers
+        {
+            get { return costumers; }
+        }
+
+        #endregion
 
         #region OtherMethods
 

@@ -13,8 +13,8 @@ namespace OnlineStore.Product
         private int id;
         private string name;
         private string description;
-        private UInt32 price;
-        private UInt32 quantity;
+        private int price;
+        private int quantity;
 
         #endregion
 
@@ -43,13 +43,13 @@ namespace OnlineStore.Product
             get { return id; }
         }
 
-        public UInt32 Price
+        public int Price
         {
             set => price = value;
             get { return price; }
         }
 
-        public UInt32 Quantity
+        public int Quantity
         {
             set => quantity = value;
             get { return quantity; }

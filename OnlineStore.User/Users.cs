@@ -12,12 +12,10 @@ namespace OnlineStore.User
     {
         #region Attributes
 
-        const int MAXADMINS = 5;
-        const int MAXCOSTUMERS = 100;
-        private int numCostumers;
-        Costumer[] costumers;
-        Admin[] admins;
-        private int numAdmins;
+        const int MAXUSERS = 105;
+        User[] users;
+        private int numUsers;
+    
         #endregion
 
         #region Methods
@@ -26,107 +24,67 @@ namespace OnlineStore.User
 
         public Users()
         {
-            costumers = new Costumer[MAXCOSTUMERS];
-            admins = new Admin[MAXCOSTUMERS];
-            InitializeArrayCostumers(costumers);
-            InitializeArrayAdmin(admins);
+       
+            users = new User[MAXUSERS];
+            InitializeArrayUsers(users);
         }
+
+        #endregion
+
+        #region Properties
+
+        public User[] AllUsers
+        {
+            get { return users; }
+        }
+
+        #endregion
 
         #region OtherMethods
 
-        void InitializeArrayCostumers(Costumer[] costumers)
+        void InitializeArrayUsers(User[] users)
         {
-            for(int i = 0; i < costumers.Length; i++)
+            for (int i = 0; i < users.Length; i++)
             {
-                costumers[i] = new Costumer();
-                
-            }
-        }
-
-        void InitializeArrayAdmin(Admin[] admins)
-        {
-            for (int i = 0; i < admins.Length; i++)
-            {
-                admins[i] = new Admin();
+                users[i] = new User();
 
             }
         }
 
-
-        public bool AddCostumer(Costumer costumer)
+        public bool AddUser(User user)
         {
-            foreach (Costumer c in costumers) 
+            foreach (User u in users)
             {
-                if (c.Nif == 0)
-                    continue;
-                if (c.Equals(costumer) || (numCostumers >= MAXCOSTUMERS))
+                if (u.Equals(user) || (numUsers >= MAXUSERS))
                     return false;
+                else continue;
             }
-            costumers[numCostumers] = costumer;
-            numCostumers++;
-            return true;
-        }
-
-        public bool AddAdmin(Admin admin)
-        {
-            foreach (Admin a in admins)
-            {
-                if (a.AdminKey == 0)
-                    continue;
-                if (a.Equals(admin) || (numAdmins >= MAXADMINS))
-                    return false;
-            }
-            admins[numAdmins] = admin;
-            numAdmins++;
+            users[numUsers] = user;
+            numUsers++;
             return true;
         }
 
 
-        public bool DeleteAllCostumers()
+        public bool DeleteAllUsers()
         {
-            for (int i = 0;i < costumers.Length;i++)
+            for (int i = 0; i < users.Length; i++)
             {
-                if (costumers[i].Nif is 0) continue;
-                else costumers[i] = new Costumer();
-            }
-            return true;
-        }
-
-        public bool DeleteAllAdmins()
-        {
-            for (int i = 0; i < admins.Length; i++)
-            {
-                if (admins[i].AdminKey is 0) continue;
-                else admins[i] = new Admin();
+                if (users[i] is null) continue;
+                else users[i] = new User();
             }
             return true;
         }
 
 
-        public bool DeleteCostumer(Costumer c)
+        public bool DeleteUser(User u)
         {
-            for(int i = 0; i < costumers.Length; i++)
+            for (int i = 0; i < users.Length; i++)
             {
-                if (costumers[i].Equals(c))
+                if (users[i].Equals(u))
                 {
-                    for(int j = i;  j < costumers.Length; j++)
-                        costumers[j] = costumers[j + i];
-                    costumers[costumers.Length - 1] = new Costumer();
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool DeleteAdmin(Admin a)
-        {
-            for (int i = 0; i < admins.Length; i++)
-            {
-                if (admins[i].Equals(a))
-                {
-                    for (int j = i; j < admins.Length; j++)
-                        admins[j] = admins[j + i];
-                    admins[admins.Length - 1] = new Admin();
+                    for (int j = i; j < users.Length; j++)
+                        users[j] = users[j + i];
+                    users[users.Length - 1] = new User();
                     return true;
                 }
             }
