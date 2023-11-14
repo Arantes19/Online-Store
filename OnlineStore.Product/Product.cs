@@ -15,12 +15,25 @@ namespace OnlineStore.Product
         private string description;
         private int price;
         private int quantity;
+        private static int numProducts = 0;
 
         #endregion
 
         #region Methods
 
         #region Constructors
+
+        static Product() => numProducts = 0;
+
+        public Product()
+        {
+            id = 0;
+            name = string.Empty;
+            description = string.Empty;
+            price = 0;
+            quantity = 0;
+        }
+
         #endregion
 
         #region Properties

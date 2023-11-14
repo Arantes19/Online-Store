@@ -47,7 +47,6 @@ namespace OnlineStore.User
             for (int i = 0; i < admins.Length; i++)
             {
                 admins[i] = new Admin();
-
             }
         }
 

@@ -46,7 +46,6 @@ namespace OnlineStore.User
             for (int i = 0; i < costumers.Length; i++)
             {
                 costumers[i] = new Costumer();
-
             }
         }
 
@@ -76,21 +75,22 @@ namespace OnlineStore.User
 
         public bool DeleteCostumer(Costumer c)
         {
-            for (int i = 0; i < costumers.Length; i++)
+            for (int i = 0; i < numCostumers; i++)
             {
                 if (costumers[i].Equals(c))
                 {
-                    for (int j = i; j < costumers.Length; j++)
-                        costumers[j] = costumers[j + i];
-                    costumers[costumers.Length - 1] = new Costumer();
+                    for (int j = i; j < numCostumers - 1; j++) 
+                        costumers[j] = costumers[j + 1];
+                    costumers[numCostumers - 1] = new Costumer();
+                    numCostumers--;
                     return true;
                 }
             }
             return false;
         }
 
-            #endregion
+        #endregion
 
-            #endregion
+        #endregion
         }
     }

@@ -24,7 +24,6 @@ namespace OnlineStore.User
 
         public Users()
         {
-       
             users = new User[MAXUSERS];
             InitializeArrayUsers(users);
         }
@@ -47,7 +46,6 @@ namespace OnlineStore.User
             for (int i = 0; i < users.Length; i++)
             {
                 users[i] = new User();
-
             }
         }
 
