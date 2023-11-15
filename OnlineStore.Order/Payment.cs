@@ -9,19 +9,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+
 
 namespace OnlineStore.Order
 {
     /// <summary>
     /// Represents the payment 
     /// </summary>
-    public class Payment : Order
+    public class Payment : OnlineStore.Order.Order
     {
         #region Properties
         #endregion
-
 
         #region Methods
 

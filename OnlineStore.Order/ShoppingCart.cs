@@ -9,15 +9,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace OnlineStore.Order
 {
     /// <summary>
     /// Representes the ShoppingCart
-    /// </summary> 
-    public class ShoppingCart : Order
+    /// </summary>
+    public class ShoppingCart : OnlineStore.Order.Order
     {
         #region Attributes
 

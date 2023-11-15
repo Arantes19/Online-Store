@@ -9,8 +9,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+
 
 namespace OnlineStore.Order
 {
@@ -39,6 +43,7 @@ namespace OnlineStore.Order
         public Order(int orderId, int totalAmmount)
         {
             this.orderId = orderId;
+            this.totalAmmount = totalAmmount;
         }
 
         #endregion
@@ -49,13 +54,19 @@ namespace OnlineStore.Order
         /// Gets the unique identifier of the order.
         /// </summary>
         public int OrderId
-        { get { return orderId; } }
+        { 
+            get { return orderId; }
+            set => orderId = value;
+        }
 
         /// <summary>
         /// Gets the total amount associated with the order.
         /// </summary>
         public int TotalAmmount
-        { get { return totalAmmount; } }
+        { 
+            get { return totalAmmount; }
+            set => totalAmmount = value;
+        }
 
 
         #endregion
