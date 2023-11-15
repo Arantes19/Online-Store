@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+*	<copyright file="OnlineStore.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Arantes19</author>
+*   <date>15/11/2023</date>
+**/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Order
 {
+    /// <summary>
+    /// Representes the ShoppingCart
+    /// </summary>
     public class ShoppingCart
     {
         #region Attributes

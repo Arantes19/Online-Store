@@ -1,4 +1,12 @@
-﻿using OnlineStore.User;
+﻿/*
+*	<copyright file="OnlineStore.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Arantes19</author>
+*   <date>15/11/2023</date>
+**/
+
+using OnlineStore.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +15,9 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.App
 {
+    /// <summary>
+    /// Represents the Input and Output of the program.
+    /// </summary>
     public class IO
     {
         public static bool Input()
