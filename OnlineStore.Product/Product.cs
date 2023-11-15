@@ -17,7 +17,7 @@ namespace OnlineStore.Product
     /// <summary>
     /// Represents a product.
     /// </summary>
-    public class Product
+    public class Product 
     {
         #region Attributes
 

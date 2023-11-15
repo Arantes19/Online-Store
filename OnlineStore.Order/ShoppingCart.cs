@@ -16,8 +16,8 @@ namespace OnlineStore.Order
 {
     /// <summary>
     /// Representes the ShoppingCart
-    /// </summary>
-    public class ShoppingCart
+    /// </summary> 
+    public class ShoppingCart : Order
     {
         #region Attributes
 
@@ -27,11 +27,17 @@ namespace OnlineStore.Order
         //private bool cart_status; //maybe it will be needed
         private UInt32 totalPrice;
 
+
         #endregion
 
         #region Methods
 
         #region Constructors
+
+        public ShoppingCart(int orderId, int totalAmmount) : base(orderId, totalAmmount)
+        {
+        }
+
         #endregion
 
         #region Properties

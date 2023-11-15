@@ -17,7 +17,22 @@ namespace OnlineStore.Order
     /// <summary>
     /// Represents the payment 
     /// </summary>
-    public class Payment
+    public class Payment : Order
     {
+        #region Properties
+        #endregion
+
+
+        #region Methods
+
+        #region Constructors
+
+        public Payment(int orderId, int totalAmmount) : base(orderId, totalAmmount)
+        {
+        }
+
+        #endregion
+
+        #endregion
     }
 }

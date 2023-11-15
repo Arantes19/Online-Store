@@ -27,7 +27,7 @@ namespace OnlineStore.Order
 
         #endregion
 
-        #region Methods
+        #region Methods 
 
         #region Constructors
 
