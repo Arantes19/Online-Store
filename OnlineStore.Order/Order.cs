@@ -6,6 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
+using OnlineStore.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace OnlineStore.Order
         private int orderId;
         private int totalAmmount;
         private List<Order> orders;
+        private List<Product.Product> product;
 
         #endregion
 
@@ -67,7 +69,6 @@ namespace OnlineStore.Order
             get { return totalAmmount; }
             set => totalAmmount = value;
         }
-
 
         #endregion
 
