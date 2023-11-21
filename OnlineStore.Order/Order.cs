@@ -42,7 +42,7 @@ namespace OnlineStore.Order
         /// </summary>
         /// <param name="orderId">The unique identifier of the order.</param>
         /// <param name="totalAmmount">The total amount associated with the order.</param>
-        public Order(int orderId, int totalAmmount)
+        public Order(int orderId, Product.Product product, int totalAmmount)
         {
             this.orderId = orderId;
             this.totalAmmount = totalAmmount;
