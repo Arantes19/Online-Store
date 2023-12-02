@@ -6,30 +6,28 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-
-namespace OnlineStore.BO
+namespace Data
 {
     /// <summary>
-    /// Represents the payment 
+    /// Represents a product.
     /// </summary>
-    public class Payment
-        #region Properties
+    public class Product
+    {
+        #region Attributes
         #endregion
 
         #region Methods
 
         #region Constructors
+        #endregion
 
+        #region Properties
+        #endregion
 
+        #region Overrides
+        #endregion
+
+        #region OtherMethods
         #endregion
 
         #endregion

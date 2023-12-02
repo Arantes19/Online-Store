@@ -6,30 +6,19 @@
 *   <date>15/11/2023</date>
 **/
 
-using OnlineStore.Product;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-
-namespace OnlineStore.Order
+namespace BusinessObjects
 {
     /// <summary>
     /// Represents an order.
     /// </summary>
-    public class Order
+    public class Orders
     {
         #region Attributes
 
         private int orderId;
         private int totalAmmount;
-        private List<Order> orders;
-        private List<Product.Product> product;
+        //private List<Orders> orders;
+        //private List<Product.Product> product;
 
         #endregion
 
@@ -42,7 +31,7 @@ namespace OnlineStore.Order
         /// </summary>
         /// <param name="orderId">The unique identifier of the order.</param>
         /// <param name="totalAmmount">The total amount associated with the order.</param>
-        public Order(int orderId, Product.Product product, int totalAmmount)
+        public Orders(int orderId, int totalAmmount)
         {
             this.orderId = orderId;
             this.totalAmmount = totalAmmount;
@@ -56,7 +45,7 @@ namespace OnlineStore.Order
         /// Gets the unique identifier of the order.
         /// </summary>
         public int OrderId
-        { 
+        {
             get { return orderId; }
             set => orderId = value;
         }
@@ -65,7 +54,7 @@ namespace OnlineStore.Order
         /// Gets the total amount associated with the order.
         /// </summary>
         public int TotalAmmount
-        { 
+        {
             get { return totalAmmount; }
             set => totalAmmount = value;
         }
