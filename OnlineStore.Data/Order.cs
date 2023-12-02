@@ -5,9 +5,8 @@
 * 	<author>Arantes19</author>
 *   <date>15/11/2023</date>
 **/
-namespace BusinessObjects
 
-namespace OnlineStore.Data
+namespace BusinessObjects
 {
     /// <summary>
     /// Represents an order.
@@ -16,11 +15,8 @@ namespace OnlineStore.Data
     {
         #region Attributes
 
-
-        //private List<Orders> orders;
-        //private List<Product.Product> product;
-        private List<Order> orders;
-        private List<Product> product;
+        private int orderId;
+        private int totalAmmount;
 
         #endregion
 

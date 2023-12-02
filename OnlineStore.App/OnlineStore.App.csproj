@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnlineStore.Order\OnlineStore.Order.csproj" />
-    <ProjectReference Include="..\OnlineStore.Product\OnlineStore.Product.csproj" />
-    <ProjectReference Include="..\OnlineStore.User\OnlineStore.User.csproj" />
+    <ProjectReference Include="..\OnlineStore.BO\OnlineStore.BO.csproj" />
+    <ProjectReference Include="..\OnlineStore.BR\OnlineStore.BR.csproj" />
+    <ProjectReference Include="..\OnlineStore.Data\OnlineStore.Data.csproj" />
   </ItemGroup>
 
 </Project>

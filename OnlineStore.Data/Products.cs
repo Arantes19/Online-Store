@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineStore.Product
+﻿namespace OnlineStore.Data
 {
     public class Products
     {
@@ -20,7 +14,7 @@ namespace OnlineStore.Product
 
         #region Constructors
 
-        public Products() 
+        public Products()
         {
             products = new Product[MAXPRODUCTS];
         }
@@ -64,7 +58,7 @@ namespace OnlineStore.Product
             {
                 if (p.Id == 0)
                     continue;
-                if (p.Equals(product) || (numProducts >= MAXPRODUCTS))
+                if (p.Equals(product) || numProducts >= MAXPRODUCTS)
                     return false;
             }
             products[numProducts] = product;
@@ -98,7 +92,7 @@ namespace OnlineStore.Product
                 if (products[i].Equals(p))
                 {
                     for (int j = i; j < products.Length; j++)
-                    products[j] = products[j + i];
+                        products[j] = products[j + i];
                     products[products.Length - 1] = new Product();
                     return true;
                 }

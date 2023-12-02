@@ -6,29 +6,20 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace OnlineStore.Order
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Representes the ShoppingCart
     /// </summary>
-    public class ShoppingCart : OnlineStore.Order.Order
+    public class ShoppingCart : Order
     {
         #region Attributes
 
-        private UInt16 itemCount;
+        private ushort itemCount;
         private bool isCartEmpty;
         private bool isCartFull;
         //private bool cart_status; //maybe it will be needed
-        private UInt32 totalPrice;
+        private uint totalPrice;
 
 
         #endregion

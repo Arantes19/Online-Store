@@ -6,13 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineStore.User
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents a collection of customers.
@@ -81,7 +75,7 @@ namespace OnlineStore.User
             {
                 if (c.Nif == 0)
                     continue;
-                if (c.Equals(costumer) || (numCostumers >= MAXCOSTUMERS))
+                if (c.Equals(costumer) || numCostumers >= MAXCOSTUMERS)
                     return false;
             }
             costumers[numCostumers] = costumer;
@@ -114,7 +108,7 @@ namespace OnlineStore.User
             {
                 if (costumers[i].Equals(c))
                 {
-                    for (int j = i; j < numCostumers - 1; j++) 
+                    for (int j = i; j < numCostumers - 1; j++)
                         costumers[j] = costumers[j + 1];
                     costumers[numCostumers - 1] = new Costumer();
                     numCostumers--;
@@ -127,5 +121,5 @@ namespace OnlineStore.User
         #endregion
 
         #endregion
-        }
     }
+}

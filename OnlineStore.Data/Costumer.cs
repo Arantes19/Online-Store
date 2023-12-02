@@ -6,13 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineStore.User
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents a customer, extending the User class.
@@ -42,12 +36,12 @@ namespace OnlineStore.User
         /// <summary>
         /// Initializes a new instance of the Customer class with default values.
         /// </summary>
-        public Costumer() 
+        public Costumer()
         {
             email = string.Empty;
             password = string.Empty;
             name = string.Empty;
-            address = string.Empty; 
+            address = string.Empty;
             zipCode = 0;
             phoneNumber = 0;
             nif = 0;
@@ -68,7 +62,7 @@ namespace OnlineStore.User
         /// <param name="zipCode">The zip code of the customer's address.</param>
         /// <param name="phoneNumber">The phone number of the customer.</param>
         /// <param name="nif">The NIF of the customer.</param>
-        public Costumer(string address, int zipCode, int phoneNumber, int nif) 
+        public Costumer(string address, int zipCode, int phoneNumber, int nif)
         {
             this.address = address;
             this.zipCode = zipCode;
@@ -85,8 +79,8 @@ namespace OnlineStore.User
         /// </summary>
         public string UserName
         {
-            set => this.name = value;
-            get { return this.name; }
+            set => name = value;
+            get { return name; }
         }
 
         /// <summary>
@@ -94,8 +88,8 @@ namespace OnlineStore.User
         /// </summary>
         public string Address
         {
-            set => this.address = value;
-            get { return this.address; }
+            set => address = value;
+            get { return address; }
         }
 
         /// <summary>
@@ -103,12 +97,12 @@ namespace OnlineStore.User
         /// </summary>
         public int ZipCode
         {
-        set 
-        { 
-             if (value > 0)
-             this.zipCode = value; 
-        }
-            get { return this.zipCode; }
+            set
+            {
+                if (value > 0)
+                    zipCode = value;
+            }
+            get { return zipCode; }
         }
 
         /// <summary>
@@ -119,9 +113,9 @@ namespace OnlineStore.User
             set
             {
                 if (value > 0)
-                this.phoneNumber = value;
+                    phoneNumber = value;
             }
-            get { return this.phoneNumber; }
+            get { return phoneNumber; }
         }
 
         /// <summary>
@@ -132,9 +126,9 @@ namespace OnlineStore.User
             set
             {
                 if (value > 0)
-                this.nif = value;
+                    nif = value;
             }
-            get { return this.nif; }
+            get { return nif; }
         }
 
         #endregion
@@ -157,10 +151,10 @@ namespace OnlineStore.User
         /// <returns>True if the objects are equal; otherwise, false.</returns>
         public override bool Equals(object? obj)
         {
-            if(obj is Costumer)
+            if (obj is Costumer)
             {
                 Costumer c = (Costumer)obj;
-                if(this == c)
+                if (this == c)
                     return true;
             }
             return false;

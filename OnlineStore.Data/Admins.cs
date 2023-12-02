@@ -6,13 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineStore.User
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents a collection of administrators.
@@ -82,7 +76,7 @@ namespace OnlineStore.User
             {
                 if (a.AdminKey == 0)
                     continue;
-                if (a.Equals(admin) || (numAdmins >= MAXADMINS))
+                if (a.Equals(admin) || numAdmins >= MAXADMINS)
                     return false;
             }
             admins[numAdmins] = admin;

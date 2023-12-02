@@ -6,18 +6,12 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineStore.Product
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents a product.
     /// </summary>
-    public class Product 
+    public class Product
     {
         #region Attributes
 
