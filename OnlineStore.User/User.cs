@@ -47,7 +47,7 @@ namespace OnlineStore.User
         {
             this.email = email;
             this.password = password;
-        }
+        } 
 
         #endregion
 
