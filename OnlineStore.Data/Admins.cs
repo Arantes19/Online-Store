@@ -6,7 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-namespace OnlineStore.Data1
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents a collection of administrators.

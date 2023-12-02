@@ -1,4 +1,4 @@
-﻿namespace OnlineStore.Data1
+﻿namespace OnlineStore.Data
 {
     public class Products
     {

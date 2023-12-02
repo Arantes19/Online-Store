@@ -6,7 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using OnlineStore.Data;
+using OnlineStore.Data1;
 
 namespace OnlineStore.App
 {
