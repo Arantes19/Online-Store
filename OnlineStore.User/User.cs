@@ -6,13 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineStore.User
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents a user in the system.
@@ -47,7 +41,7 @@ namespace OnlineStore.User
         {
             this.email = email;
             this.password = password;
-        } 
+        }
 
         #endregion
 
@@ -68,7 +62,7 @@ namespace OnlineStore.User
         public string Password
         {
             get { return password; }
-            set => password = value; 
+            set => password = value;
         }
 
         #endregion

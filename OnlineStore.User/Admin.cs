@@ -6,16 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace OnlineStore.User
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents an administrator, extending the User class.
@@ -58,7 +49,7 @@ namespace OnlineStore.User
         /// <param name="key">The key associated with the administrator.</param>
         public Admin(string email, string password, int key) : base(email, password)
         {
-            this.adminKey = key;
+            adminKey = key;
         }
 
         /// <summary>
@@ -70,8 +61,8 @@ namespace OnlineStore.User
         /// <param name="key">The key associated with the administrator.</param>
         public Admin(string username, string email, string password, int key) : base(email, password)
         {
-            this.adminUsername = username;
-            this.adminKey = key;
+            adminUsername = username;
+            adminKey = key;
         }
 
         #endregion
@@ -95,7 +86,7 @@ namespace OnlineStore.User
             set
             {
                 if (value < 12)
-                   adminKey = value;
+                    adminKey = value;
             }
             get { return adminKey; }
         }

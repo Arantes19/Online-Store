@@ -6,12 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using OnlineStore.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OnlineStore.Data;
 
 namespace OnlineStore.App
 {
@@ -60,5 +55,5 @@ namespace OnlineStore.App
         }
 
     }
-}       
+}
 

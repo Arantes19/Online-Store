@@ -6,15 +6,7 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineStore.User
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents a collection of users.
@@ -79,7 +71,7 @@ namespace OnlineStore.User
         {
             foreach (User u in users)
             {
-                if (u.Equals(user) || (numUsers >= MAXUSERS))
+                if (u.Equals(user) || numUsers >= MAXUSERS)
                     return false;
                 else continue;
             }

@@ -6,14 +6,6 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OnlineStore.Product;
-using OnlineStore.User;
-
 namespace OnlineStore.App
 {
     /// <summary>
@@ -23,7 +15,7 @@ namespace OnlineStore.App
     {
         static void Main(string[] args)
         {
-            IO.Input(); 
+            IO.Input();
         }
     }
 }

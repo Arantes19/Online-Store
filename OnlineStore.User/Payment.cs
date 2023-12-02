@@ -6,22 +6,12 @@
 *   <date>15/11/2023</date>
 **/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-
-namespace OnlineStore.Order
+namespace OnlineStore.Data
 {
     /// <summary>
     /// Represents the payment 
     /// </summary>
-    public class Payment : OnlineStore.Order.Order
+    public class Payment : Order
     {
         #region Properties
         #endregion
