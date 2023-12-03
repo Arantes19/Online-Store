@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "BusinessObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BusinessObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessObjects.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BusinessObjects/1.0.0": {
+      "type": "project",
+      "path": "../BusinessObjects/BusinessObjects.csproj",
+      "msbuildProject": "../BusinessObjects/BusinessObjects.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "BusinessObjects >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\arant\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\OnlineStore\\OnlineStore.csproj",
-      "projectName": "OnlineStore",
-      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\OnlineStore\\OnlineStore.csproj",
+      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Data\\Data.csproj",
+      "projectName": "Data",
+      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Data\\Data.csproj",
       "packagesPath": "C:\\Users\\arant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\OnlineStore\\obj\\",
+      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arant\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj": {
+              "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

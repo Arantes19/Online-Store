@@ -7,5 +7,5 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = OnlineStore
-build_property.ProjectDir = C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\OnlineStore\
+build_property.RootNamespace = Data
+build_property.ProjectDir = C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\Data\

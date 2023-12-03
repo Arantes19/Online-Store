@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\OnlineStore\\OnlineStore.csproj",
-      "projectName": "OnlineStore",
-      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\OnlineStore\\OnlineStore.csproj",
+      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj",
+      "projectName": "BusinessObjects",
+      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj",
       "packagesPath": "C:\\Users\\arant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\OnlineStore\\obj\\",
+      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arant\\AppData\\Roaming\\NuGet\\NuGet.Config",
