@@ -6,7 +6,17 @@
 *   <date>15/11/2023</date>
 **/
 
-namespace BusinessObjects
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+
+namespace OnlineStore.Order
 {
     /// <summary>
     /// Represents an order.
@@ -17,6 +27,7 @@ namespace BusinessObjects
 
         private int orderId;
         private int totalAmmount;
+        private List<Order> orders;
 
         #endregion
 
@@ -56,6 +67,7 @@ namespace BusinessObjects
             get { return totalAmmount; }
             set => totalAmmount = value;
         }
+
 
         #endregion
 
