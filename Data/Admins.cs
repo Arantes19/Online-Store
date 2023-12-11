@@ -9,7 +9,7 @@ namespace Data
     {
         #region Attributes
 
-        static Dictionary<int, List<Admin>> admins;
+        static List<Admin> admins = new List<Admin>();
 
         #endregion
 
@@ -36,7 +36,7 @@ namespace Data
 
         #region OtherMethods
 
-        public static bool InsereUtente(Admin a, int key)
+        /*public static bool InsereUtente(Admin a, int key)
         {
             if (!admins.ContainsKey(key))
                 admins.Add(key, new List<Admin>());
@@ -46,7 +46,7 @@ namespace Data
                 return true;
             }
             return false;
-        }
+        }*/
 
         /*  
         /// <summary> 

@@ -27,9 +27,9 @@
         /// </summary>
         public Admin()
         {
-            email = string.Empty;
-            password = string.Empty;
-            adminUsername = string.Empty;
+            email = "";
+            password = "";
+            adminUsername = "";
             adminKey = 0;
         }
 
@@ -137,6 +137,11 @@
             foreach (Admin a in admins)
                 if (a.AdminKey == key) return true;
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

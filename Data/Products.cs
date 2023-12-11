@@ -12,6 +12,9 @@ namespace Data
     public class Product
     {
         #region Attributes
+
+        static List<Product> products = new List<Product>();
+
         #endregion
 
         #region Methods

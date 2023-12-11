@@ -14,7 +14,7 @@ namespace Data
     {
         #region Attributes
 
-        static Dictionary<int, List<Costumer>> costumers;
+        static List<Costumer> costumers = new List<Costumer>();
 
         #endregion
 
@@ -38,7 +38,7 @@ namespace Data
 
         #region OtherMethods
 
-        public static bool InsereUtente(Costumer c, int nif)
+        /*public static bool InsereUtente(Costumer c, int nif)
         {
             if (!costumers.ContainsKey(nif))
                 costumers.Add(nif, new List<Costumer>());
@@ -48,7 +48,7 @@ namespace Data
                 return true;
             }
             return false;
-        }
+        }*/
 
         /*
         /// <summary>

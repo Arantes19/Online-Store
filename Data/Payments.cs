@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,10 @@ namespace Data
     /// </summary>
     public class Payments
     {
-        #region Properties
+        #region Atributes
+
+        static List<Payment> payments = new List<Payment>();
+
         #endregion
 
         #region Methods

@@ -184,6 +184,11 @@ namespace BusinessObjects
             return false;
         }
 
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #endregion

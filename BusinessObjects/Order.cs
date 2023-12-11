@@ -9,7 +9,7 @@ namespace BusinessObjects
     /// <summary>
     /// Represents an order.
     /// </summary>
-    public class Orders
+    public class Order
     {
         #region Attributes
 
@@ -30,7 +30,7 @@ namespace BusinessObjects
         /// </summary>
         /// <param name="orderId">The unique identifier of the order.</param>
         /// <param name="totalAmmount">The total amount associated with the order.</param>
-        public Orders(int orderId, int totalAmmount)
+        public Order(int orderId, int totalAmmount)
         {
             this.orderId = orderId;
             this.totalAmmount = totalAmmount;
