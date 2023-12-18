@@ -9,3 +9,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Data
 build_property.ProjectDir = C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\Data\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

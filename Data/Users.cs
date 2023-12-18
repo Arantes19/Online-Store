@@ -14,7 +14,7 @@ namespace Data
     {
         #region Attributes
 
-        static List<User> users = new List<User>();
+        List<User> users;
 
         #endregion
 
@@ -27,6 +27,7 @@ namespace Data
         /// </summary>
         public Users()
         {
+            users = new List<User>();
         }
 
         #endregion
@@ -39,53 +40,69 @@ namespace Data
 
         #region OtherMethods
 
-        /*public static bool InsereUtente(User u, int ano)
-        {
-            if (!users.ContainsKey(ano))
-                users.Add(ano, new List<User>());
-            if (!users[ano].Contains(u))
-            {
-                users[ano].Add(u);
-                return true;
-            }
-            return false;
-        }*/
-
-        /*
         /// <summary>
-        /// Deletes all users in the collection by creating new User objects.
+        /// 
         /// </summary>
-        /// <returns>True if deletion is successful, false otherwise.</returns>
-        public bool DeleteAllUsers()
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
+        public User GetUserByEmail(string userEmail)
         {
-        for (int i = 0; i < users.Length; i++)
-        {
-            if (users[i] is null) continue;
-            else users[i] = new User();
-        }
-        return true;
+            return users.FirstOrDefault(u => u.Email == userEmail);
         }
 
-         /// <summary>
-        /// Deletes a specific user from the collection.
+
+        /// <summary>
+        /// 
         /// </summary>
-        /// <param name="u">The user to be deleted.</param>
-        /// <returns>True if the user is deleted successfully, false otherwise.</returns>
-        public bool DeleteUser(User u)
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public bool AddUser(User u)
         {
-            for (int i = 0; i < users.Length; i++)
-            {
-                if (users[i].Equals(u))
-                {
-                    for (int j = i; j < users.Length; j++)
-                    users[j] = users[j + i];
-                users[users.Length - 1] = new User();
-                return true;
-                }
-            }
-            return false;
+            if (users.Contains(u)) 
+                return false;
+            users.Add(u);
+            return true;
         }
-        */
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="updatedUser"></param>
+        /// <returns></returns>
+        public bool UpdateUser(User updatedUser)
+        {
+            var existingUser = users.FirstOrDefault(u => u.Email == updatedUser.Email);
+
+            if (existingUser != null)
+            {
+                // Update user properties
+                existingUser.Password = updatedUser.Password;
+                // Update other properties as needed
+
+                return true;
+            }
+
+            return false; // User not found
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
+        public bool DeleteUser(string userEmail)
+        {
+            var userToDelete = users.FirstOrDefault(u => u.Email == userEmail);
+
+            if (userToDelete != null)
+            {
+                users.Remove(userToDelete);
+                return true;
+            }
+
+            return false; // User not found
+        }
+
         #endregion
 
         #endregion

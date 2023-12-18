@@ -9,6 +9,7 @@ namespace BusinessObjects
     /// <summary>
     /// Represents a customer, extending the User class.
     /// </summary>
+    /// <seealso cref="User"/>
     public class Costumer : User
     {
         #region Atributes
@@ -18,7 +19,6 @@ namespace BusinessObjects
         private int zipCode;
         private int phoneNumber;
         private int nif;
-        private static int numCostumers = 0;
 
         #endregion
 
@@ -27,45 +27,32 @@ namespace BusinessObjects
         #region Constructors
 
         /// <summary>
-        /// Initializes static members of the Customer class.
-        /// </summary>
-        static Costumer() => numCostumers = 0;
-
-        /// <summary>
         /// Initializes a new instance of the Customer class with default values.
         /// </summary>
-        public Costumer()
+        public Costumer() : base()
         {
-            email = string.Empty;
-            password = string.Empty;
-            name = string.Empty;
-            address = string.Empty;
-            zipCode = 0;
-            phoneNumber = 0;
-            nif = 0;
+            this.name = string.Empty;
+            this.address = string.Empty;
+            this.ZipCode = -1;
+            this.PhoneNumber = -1;
+            this.Nif = -1;
         }
 
         /// <summary>
-        /// Initializes a new instance of the Customer class with specified name, email, and password.
+        /// 
         /// </summary>
-        /// <param name="name">The name of the customer.</param>
-        /// <param name="email">The email address of the customer.</param>
-        /// <param name="password">The password for the customer's account.</param>
-        public Costumer(string name, string email, string password) : base(email, password) => this.name = name;
-
-        /// <summary>
-        /// Initializes a new instance of the Customer class with specified address, zip code, phone number, and NIF.
-        /// </summary>
-        /// <param name="address">The address of the customer.</param>
-        /// <param name="zipCode">The zip code of the customer's address.</param>
-        /// <param name="phoneNumber">The phone number of the customer.</param>
-        /// <param name="nif">The NIF of the customer.</param>
-        public Costumer(string address, int zipCode, int phoneNumber, int nif)
+        /// <param name="nif"></param>
+        /// <param name="name"></param>
+        /// <param name="address"></param>
+        /// <param name="zipCode"></param>
+        /// <param name="phoneNumber"></param>
+        public Costumer(int nif, string name, string address, int zipCode, int phoneNumber) : base(email, password, balance)
         {
+            this.name = name;
+            this.Nif = nif;
             this.address = address;
-            this.zipCode = zipCode;
-            this.phoneNumber = phoneNumber;
-            this.nif = nif;
+            this.ZipCode = zipCode;
+            this.PhoneNumber = phoneNumber;
         }
 
         #endregion
