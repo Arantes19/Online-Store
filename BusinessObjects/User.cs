@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+*	<copyright file="User" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
 
 namespace BusinessObjects
 {
@@ -26,17 +28,17 @@ namespace BusinessObjects
         /// <summary>
         /// Initializes a new instance of the User class with default values.
         /// </summary>
-        public User() 
+        public User()
         {
             this.email = string.Empty;
             this.password = string.Empty;
         }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the User class with specified email and password.
         /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
+        /// <param name="email">The email address of the user.</param>
+        /// <param name="password">The password associated with the user's account.</param>
         public User(string email, string password)
         {
             this.email = email;
@@ -70,24 +72,24 @@ namespace BusinessObjects
         #region Operators
 
         /// <summary>
-        ///
+        /// Determines whether two users are equal based on their email addresses.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public static bool operator == (User a, User b)
+        /// <param name="a">The first user.</param>
+        /// <param name="b">The second user.</param>
+        /// <returns>True if the users are equal; otherwise, false.</returns>
+        public static bool operator ==(User a, User b)
         {
-            if(a.email == b.email) return true;
+            if (a.email == b.email) return true;
             return false;
         }
 
         /// <summary>
-        /// 
+        /// Determines whether two users are not equal based on their email addresses.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public static bool operator != (User a, User b)
+        /// <param name="a">The first user.</param>
+        /// <param name="b">The second user.</param>
+        /// <returns>True if the users are not equal; otherwise, false.</returns>
+        public static bool operator !=(User a, User b)
         {
             return !(a == b);
         }
@@ -97,22 +99,22 @@ namespace BusinessObjects
         #region Overrides
 
         /// <summary>
-        /// 
+        /// Returns a string representation of the user's information.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string containing the user's information.</returns>
         public override string ToString()
         {
             return UserFile();
         }
 
         /// <summary>
-        /// 
+        /// Determines whether the specified object is equal to the current object.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>True if the objects are equal; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
-            if(obj is User)
+            if (obj is User)
             {
                 User u = (User)obj;
                 if (this == u) return true;
@@ -121,10 +123,10 @@ namespace BusinessObjects
         }
 
         /// <summary>
-        /// 
+        /// Gets the hash code for this object.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns>A hash code value.</returns>
+        /// <exception cref="NotImplementedException">Thrown if GetHashCode is not implemented.</exception>
         public override int GetHashCode()
         {
             throw new NotImplementedException();
@@ -135,19 +137,19 @@ namespace BusinessObjects
         #region OtherMethods
 
         /// <summary>
-        /// 
+        /// Retrieves a string representation of the user's information.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A formatted string containing the user's information.</returns>
         public string UserFile()
         {
             return string.Format("Email: {0}, Password: {1}", email, password);
         }
 
         /// <summary>
-        /// 
+        /// Compares the user to another user and returns the result.
         /// </summary>
-        /// <param name="u"></param>
-        /// <returns></returns>
+        /// <param name="u">The user to compare with.</param>
+        /// <returns>1 if the user is null; otherwise, 0.</returns>
         public int CompareTo(User u)
         {
             if (u is null) return 1;

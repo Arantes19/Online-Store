@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+*	<copyright file="Costumer" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
 
 namespace BusinessObjects
 {
     /// <summary>
     /// Represents a customer, extending the User class.
     /// </summary>
-    /// <seealso cref="User"/>
+    /// <inheritdoc cref="User"/>
     public class Costumer : User
     {
         #region Atributes
@@ -20,6 +23,7 @@ namespace BusinessObjects
         private int phoneNumber;
         private int nif;
         private float balance;
+        private ShoppingCart cart;
 
         #endregion
 
@@ -30,6 +34,7 @@ namespace BusinessObjects
         /// <summary>
         /// Initializes a new instance of the Customer class with default values.
         /// </summary>
+        /// <inheritdoc cref="User"/>
         public Costumer() : base()
         {
             this.name = string.Empty;
@@ -38,17 +43,23 @@ namespace BusinessObjects
             this.phoneNumber = -1;
             this.nif = -1;
             this.balance = 0.0f;
+            this.cart = new ShoppingCart();
         }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the Customer class with specified values.
         /// </summary>
-        /// <param name="nif"></param>
-        /// <param name="name"></param>
-        /// <param name="address"></param>
-        /// <param name="zipCode"></param>
-        /// <param name="phoneNumber"></param>
-        public Costumer(int nif, string name, string address, int zipCode, int phoneNumber, string email, string password, float balance) 
+        /// <param name="nif">The NIF of the customer.</param>
+        /// <param name="name">The name of the customer.</param>
+        /// <param name="address">The address of the customer.</param>
+        /// <param name="zipCode">The zip code of the customer's address.</param>
+        /// <param name="phoneNumber">The phone number of the customer.</param>
+        /// <param name="email">The email of the customer</param>
+        /// <param name="password">The password of the customer</param>
+        /// <param name="balance">The balance of the customer</param>
+        /// <param name="cart">The Cart of the customer</param>
+        /// <inheritdoc cref="User"/>
+        public Costumer(int nif, string name, string address, int zipCode, int phoneNumber, string email, string password, float balance, ShoppingCart cart) 
             :base(email, password)
         {
             this.name = name;
@@ -57,6 +68,7 @@ namespace BusinessObjects
             this.zipCode = zipCode;
             this.phoneNumber = phoneNumber;
             this.balance = balance;
+            this.cart = cart;
         }
 
         #endregion
@@ -121,7 +133,7 @@ namespace BusinessObjects
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the Balance of the customer.
         /// </summary>
         public float Balance
         {
@@ -133,16 +145,25 @@ namespace BusinessObjects
             }
         }
 
+        /// <summary>
+        /// Gets or sets the ShoppingCart of the customer.
+        /// </summary>
+        public ShoppingCart PersonalCart
+        {
+            get => cart;
+            set => cart = value;
+        }
+
         #endregion
 
         #region Operators
 
         /// <summary>
-        /// 
+        /// Equality operator for comparing two Costumer objects based on NIF.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /// <param name="a">The first Costumer object.</param>
+        /// <param name="b">The second Costumer object.</param>
+        /// <returns>True if the NIFs are equal; otherwise, false.</returns>
         public static bool operator == (Costumer a, Costumer b)
         {
             if (a.nif == b.nif) return true;
@@ -150,11 +171,11 @@ namespace BusinessObjects
         }
 
         /// <summary>
-        /// 
+        /// Inequality operator for comparing two Costumer objects based on NIF.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /// <param name="a">The first Costumer object.</param>
+        /// <param name="b">The second Costumer object.</param>
+        /// <returns>True if the NIFs are not equal; otherwise, false.</returns>
         public static bool operator != (Costumer a, Costumer b)
         {
            return !(a == b);
@@ -194,7 +215,7 @@ namespace BusinessObjects
         #region OtherMethods
 
         /// <summary>
-        ///  Retrieves a string representation of the customer's information.
+        /// Retrieves a string representation of the customer's information.
         /// </summary>
         /// <returns>A formatted string containing the customer's information.</returns>
         public string CostumerFile()
@@ -204,10 +225,10 @@ namespace BusinessObjects
         }
 
         /// <summary>
-        /// 
+        /// Compares this Costumer object with another Costumer object.
         /// </summary>
-        /// <param name="c"></param>
-        /// <returns></returns>
+        /// <param name="c">The Costumer object to compare.</param>
+        /// <returns>0 if the objects are equal; otherwise, a non-zero value.</returns>
         public int CompareTo(Costumer c)
         {
             if (c is null) return 1;
@@ -215,14 +236,15 @@ namespace BusinessObjects
         }
 
         /// <summary>
-        /// 
+        /// Returns a hash code for this Costumer object.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns>A hash code value.</returns>
+        /// <exception cref="NotImplementedException">Thrown if GetHashCode is not implemented.</exception>
         public override int GetHashCode()
         {
             throw new NotImplementedException();
         }
+
 
         #endregion
 

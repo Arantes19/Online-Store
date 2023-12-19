@@ -1,4 +1,13 @@
-﻿namespace BusinessObjects
+﻿/*
+*	<copyright file="Admin" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
+
+namespace BusinessObjects
 {
     /// <summary>
     /// Represents an administrator, extending the User class.
@@ -25,14 +34,13 @@
             this.AdminKey = 0;
         }
 
-
         /// <summary>
-        /// 
+        /// Initializes a new instance of the Admin class with specified values.
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <param name="key"></param>
+        /// <param name="username">The username of the administrator.</param>
+        /// <param name="email">The email address of the administrator.</param>
+        /// <param name="password">The password of the administrator.</param>
+        /// <param name="key">The key associated with the administrator.</param>
         public Admin(string username, string email, string password, int key) : base(email, password)
         {
             this.AdminUsername = username;
@@ -70,24 +78,27 @@
         #region Operators
 
         /// <summary>
-        /// Redefinição do operador ==
+        /// Equality operator for comparing two Admin objects based on the adminKey.
         /// </summary>
-        /// <param name="a">a.</param>
-        /// <param name="b">The b.</param>
+        /// <param name="a">The first Admin object.</param>
+        /// <param name="b">The second Admin object.</param>
+        /// <returns>True if the adminKeys are equal; otherwise, false.</returns>
         public static bool operator ==(Admin a, Admin b)
         {
             if (a.adminKey == b.adminKey)
                 return true;
             return false;
         }
+
         /// <summary>
-        /// Redefinição do operador !=
+        /// Inequality operator for comparing two Admin objects based on the adminKey.
         /// </summary>
-        /// <param name="a">a.</param>
-        /// <param name="b">The b.</param>
+        /// <param name="a">The first Admin object.</param>
+        /// <param name="b">The second Admin object.</param>
+        /// <returns>True if the adminKeys are not equal; otherwise, false.</returns>
         public static bool operator !=(Admin a, Admin b)
         {
-            return (!(a == b));
+            return !(a == b);
         }
 
         #endregion
@@ -121,7 +132,6 @@
 
         #endregion
 
-
         #region OtherMethods
 
         /// <summary>
@@ -134,10 +144,10 @@
         }
 
         /// <summary>
-        /// 
+        /// Compares this Admin object with another Admin object.
         /// </summary>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="a">The Admin object to compare.</param>
+        /// <returns>0 if the objects are equal; otherwise, a non-zero value.</returns>
         public int CompareTo(Admin a)
         {
             if (a is null) return 1;
@@ -145,10 +155,10 @@
         }
 
         /// <summary>
-        /// 
+        /// Returns a hash code for this Admin object.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns>A hash code value.</returns>
+        /// <exception cref="NotImplementedException">Thrown if GetHashCode is not implemented.</exception>
         public override int GetHashCode()
         {
             throw new NotImplementedException();

@@ -1,0 +1,6 @@
+C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\BusinessRules\obj\Debug\net6.0\BusinessRules.csproj.AssemblyReference.cache
+C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\BusinessRules\obj\Debug\net6.0\BusinessRules.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\BusinessRules\obj\Debug\net6.0\BusinessRules.AssemblyInfoInputs.cache
+C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\BusinessRules\obj\Debug\net6.0\BusinessRules.AssemblyInfo.cs
+C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\BusinessRules\obj\Debug\net6.0\BusinessRules.csproj.CoreCompileInputs.cache
+C:\Users\arant\Desktop\LESI\2-1\POO\3.1\TrabalhoPOO_23504_Fase1\BusinessRules\obj\Debug\net6.0\BusinessRules.sourcelink.json

@@ -1,16 +1,26 @@
-﻿using BusinessObjects;
+﻿/*
+*	<copyright file="ShoppingCarts" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
+
+using BusinessObjects;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Data
 {
     /// <summary>
-    /// Representes the ShoppingCart
+    /// Represents the ShoppingCart.
     /// </summary>
     public class ShoppingCarts
     {
         #region Attributes
 
         private static List<ShoppingCart> listShoppingCarts;
+        private List<Product> listProducts;
 
         #endregion
 
@@ -19,19 +29,19 @@ namespace Data
         #region Constructor
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ShoppingCarts"/> class.
         /// </summary>
         static ShoppingCarts()
         {
-            listShoppingCarts = new List<ShoppingCart>();    
+            listShoppingCarts = new List<ShoppingCart>();
         }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ShoppingCarts"/> class.
         /// </summary>
         public ShoppingCarts()
         {
-
+            listProducts = new List<Product>();
         }
 
         #endregion
@@ -39,9 +49,15 @@ namespace Data
         #region Properties
 
         /// <summary>
-        /// 
+        /// Gets the list of shopping carts.
         /// </summary>
         public List<ShoppingCart> ListShoppingCarts { get { return listShoppingCarts; } }
+
+
+        /// <summary>
+        /// Gets the list of products.
+        /// </summary>
+        public List<Product> ListProducts { get { return listProducts; } }
 
         #endregion
 
@@ -54,20 +70,20 @@ namespace Data
         #region OtherMethods
 
         /// <summary>
-        /// 
+        /// Gets a list of all shopping carts.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A copy of the list of all shopping carts.</returns>
         public static List<ShoppingCart> getAllShoppingCarts()
         {
             return new List<ShoppingCart>(listShoppingCarts);
         }
 
         /// <summary>
-        /// 
+        /// Checks if a shopping cart exists.
         /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="s">The shopping cart to check.</param>
+        /// <returns>True if the shopping cart exists; otherwise, an exception is thrown.</returns>
+        /// <exception cref="Exception">Thrown if the shopping cart already exists.</exception>
         public static bool ExistShoppingCart(ShoppingCart s)
         {
             foreach (ShoppingCart existingCart in listShoppingCarts)
@@ -80,9 +96,9 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Deletes all shopping carts.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if all shopping carts are deleted successfully.</returns>
         public static bool DeleteAllShopingCarts()
         {
             listShoppingCarts.Clear();
@@ -90,31 +106,38 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Deletes a specific shopping cart by ID.
         /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static bool DeleteShoppingCart(ShoppingCart s)
+        /// <param name="id">The ID of the shopping cart to delete.</param>
+        /// <returns>True if the shopping cart is deleted successfully.</returns>
+        public static bool DeleteShoppingCart(int id)
         {
-            if (listShoppingCarts.Remove(s)) return true;
+            foreach (ShoppingCart s in listShoppingCarts)
+            {
+                if (s.CartId == id)
+                {
+                    listShoppingCarts.Remove(s);
+                    return true;
+                }
+            }
             return false;
         }
 
         /// <summary>
-        /// 
+        /// Gets the number of shopping carts.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The number of shopping carts.</returns>
         public static int NumCarts()
         {
             return listShoppingCarts.Count;
         }
 
         /// <summary>
-        /// 
+        /// Reads shopping carts from a file.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="filename">The name of the file to read from.</param>
+        /// <returns>True if the read operation is successful.</returns>
+        /// <exception cref="Exception">Thrown if there is an error during the read operation.</exception>
         public static bool ReadShoppingCartsFile(string filename)
         {
             try
@@ -137,11 +160,11 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Saves shopping carts to a file.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="filename">The name of the file to save to.</param>
+        /// <returns>True if the save operation is successful.</returns>
+        /// <exception cref="Exception">Thrown if there is an error during the save operation.</exception>
         public static bool SaveShoppingCartsFile(string filename)
         {
             try

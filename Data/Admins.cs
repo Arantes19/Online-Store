@@ -1,4 +1,13 @@
-﻿using BusinessObjects;
+﻿/*
+*	<copyright file="Admins" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
+
+using BusinessObjects;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Data
@@ -14,13 +23,12 @@ namespace Data
 
         #endregion
 
-
         #region Methods
 
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Admins"/> class.
         /// </summary>
         static Admins()
         {
@@ -28,6 +36,7 @@ namespace Data
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Admins"/> class.
         /// The default Constructor.
         /// </summary>
         public Admins()
@@ -39,7 +48,7 @@ namespace Data
         #region Properties
 
         /// <summary>
-        /// 
+        /// Gets the list of administrators.
         /// </summary>
         public List<Admin> AdminsList { get { return listAdmins.ToList(); } }
 
@@ -54,12 +63,12 @@ namespace Data
         #region OtherMethods
 
         /// <summary>
-        /// 
+        /// Authenticates an administrator based on email, password, and key.
         /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="email">The email of the administrator.</param>
+        /// <param name="password">The password of the administrator.</param>
+        /// <param name="key">The key of the administrator.</param>
+        /// <returns>True if authentication is successful; otherwise, false.</returns>
         public static bool AuthenticateAdmin(string email, string password, int key)
         {
             foreach (Admin admin in listAdmins)
@@ -73,20 +82,20 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Gets a list of all administrators.
         /// </summary>
-        /// <returns></returns>
-        public static List<Admin> GetAllAdmins() 
+        /// <returns>A list of administrators.</returns>
+        public static List<Admin> GetAllAdmins()
         {
             return new List<Admin>(listAdmins);
         }
 
         /// <summary>
-        /// 
+        /// Checks if an administrator with the given email and key exists.
         /// </summary>
-        /// <param name="email"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="email">The email to check.</param>
+        /// <param name="key">The key to check.</param>
+        /// <returns>True if an administrator with the given email and key exists; otherwise, false.</returns>
         public static bool ExistAdmin(string email, int key)
         {
             foreach (Admin existingAdm in listAdmins)
@@ -98,14 +107,14 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Inserts a new administrator.
         /// </summary>
-        /// <param name="a"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="a">The administrator to insert.</param>
+        /// <returns>True if the administrator is inserted successfully; otherwise, false.</returns>
+        /// <exception cref="Exception">Thrown if there is an exception during insertion.</exception>
         public static bool InsertAdmin(Admin a)
         {
-            foreach(Admin existingAdmin in listAdmins)
+            foreach (Admin existingAdmin in listAdmins)
             {
                 if (existingAdmin.Equals(a)) throw new Exception();
             }
@@ -115,14 +124,14 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Updates the credentials of an administrator.
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="name"></param>
-        /// <param name="email"></param>
-        /// <param name="pass"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="a">The administrator to update.</param>
+        /// <param name="name">The new username.</param>
+        /// <param name="email">The new email.</param>
+        /// <param name="pass">The new password.</param>
+        /// <returns>True if the credentials are updated successfully; otherwise, false.</returns>
+        /// <exception cref="Exception">Thrown if there is an exception during the update.</exception>
         public static bool UpdateAdminCredentials(Admin a, string name, string email, string pass)
         {
             foreach (Admin existingAdmin in listAdmins)
@@ -139,9 +148,9 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Deletes all administrators.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if all administrators are deleted successfully; otherwise, false.</returns>
         public static bool DeleteAllAdmins()
         {
             listAdmins.Clear();
@@ -149,10 +158,10 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Deletes an administrator.
         /// </summary>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="a">The administrator to delete.</param>
+        /// <returns>True if the administrator is deleted successfully; otherwise, false.</returns>
         public static bool DeleteAdmin(Admin a)
         {
             if (listAdmins.Remove(a)) return true;
@@ -160,20 +169,20 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Gets the number of administrators.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The number of administrators.</returns>
         public static int NumAdmins()
         {
             return listAdmins.Count;
         }
 
         /// <summary>
-        /// 
+        /// Reads administrators from a file.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="filename">The name of the file to read from.</param>
+        /// <returns>True if administrators are read successfully; otherwise, false.</returns>
+        /// <exception cref="Exception">Thrown if there is an exception during reading.</exception>
         public static bool ReadAdminsFile(string filename)
         {
             try
@@ -190,17 +199,16 @@ namespace Data
             }
             catch (Exception)
             {
-
                 throw new Exception();
             }
         }
 
         /// <summary>
-        /// 
+        /// Saves administrators to a file.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="filename">The name of the file to save to.</param>
+        /// <returns>True if administrators are saved successfully; otherwise, false.</returns>
+        /// <exception cref="Exception">Thrown if there is an exception during saving.</exception>
         public static bool SaveAdminsFile(string filename)
         {
             try
@@ -216,7 +224,6 @@ namespace Data
             }
             catch (Exception)
             {
-
                 throw new Exception();
             }
         }

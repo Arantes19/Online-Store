@@ -1,4 +1,13 @@
-﻿namespace BusinessObjects
+﻿/*
+*	<copyright file="Product" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
+
+namespace BusinessObjects
 {
     /// <summary>
     /// Represents a product.
@@ -32,13 +41,13 @@
         }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the Product class with specified values.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
-        /// <param name="price"></param>
-        /// <param name="quantity"></param>
+        /// <param name="id">The unique identifier of the product.</param>
+        /// <param name="name">The name of the product.</param>
+        /// <param name="description">The description of the product.</param>
+        /// <param name="price">The price of the product.</param>
+        /// <param name="quantity">The quantity of the product.</param>
         public Product(int id, string name, string description, float price, int quantity)
         {
             this.id = id;
@@ -62,7 +71,7 @@
         }
 
         /// <summary>
-        /// Gets or sets the description of the product
+        /// Gets or sets the description of the product.
         /// </summary>
         public string Description
         {
@@ -102,24 +111,19 @@
         #region Operators
 
         /// <summary>
-        /// Redefinição do operador ==
+        /// Equality operator for checking if two products are equal based on their unique identifier.
         /// </summary>
-        /// <param name="a">a.</param>
-        /// <param name="b">The b.</param>
-        public static bool operator == (Product a, Product b)
+        public static bool operator ==(Product a, Product b)
         {
-            if (a.id == b.id)
-                return true;
-            return false;
+            return a.id == b.id;
         }
+
         /// <summary>
-        /// Redefinição do operador !=
+        /// Inequality operator for checking if two products are not equal based on their unique identifier.
         /// </summary>
-        /// <param name="a">a.</param>
-        /// <param name="b">The b.</param>
-        public static bool operator != (Product a, Product b)
+        public static bool operator !=(Product a, Product b)
         {
-            return (!(a == b));
+            return !(a == b);
         }
 
         #endregion
@@ -127,9 +131,9 @@
         #region Overrides
 
         /// <summary>
-        /// Returns a string representation of the administrator's information.
+        /// Returns a string representation of the product's information.
         /// </summary>
-        /// <returns>A string containing the administrator's information.</returns>
+        /// <returns>A string containing the product's information.</returns>
         public override string ToString()
         {
             return ProductInfo();
@@ -156,20 +160,20 @@
         #region OtherMethods
 
         /// <summary>
-        /// Retrieves a string representation of the administrator's information.
+        /// Retrieves a string representation of the product's information.
         /// </summary>
-        /// <returns>A formatted string containing the administrator's information.</returns>
+        /// <returns>A formatted string containing the product's information.</returns>
         public string ProductInfo()
         {
-            return string.Format("Product ID: {0}, Product Name: {1}, Description: {2}, Price: {3}, Quantity: {4}", 
-              id , name, description, price, quantity);
+            return string.Format("Product ID: {0}, Product Name: {1}, Description: {2}, Price: {3}, Quantity: {4}",
+                id, name, description, price, quantity);
         }
 
         /// <summary>
-        /// 
+        /// Compares the product to an admin and returns the result.
         /// </summary>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="a">The admin to compare with.</param>
+        /// <returns>1 if the admin is null; otherwise, 0.</returns>
         public int CompareTo(Admin a)
         {
             if (a is null) return 1;
@@ -177,10 +181,10 @@
         }
 
         /// <summary>
-        /// 
+        /// Gets the hash code for this object.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns>A hash code value.</returns>
+        /// <exception cref="NotImplementedException">Thrown if GetHashCode is not implemented.</exception>
         public override int GetHashCode()
         {
             throw new NotImplementedException();

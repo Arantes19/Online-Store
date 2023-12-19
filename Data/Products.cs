@@ -1,4 +1,13 @@
-﻿using BusinessObjects;
+﻿/*
+*	<copyright file="Products" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
+
+using BusinessObjects;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Data
@@ -19,7 +28,7 @@ namespace Data
         #region Constructors
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Products"/> class.
         /// </summary>
         static Products()
         {
@@ -27,7 +36,7 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Products"/> class.
         /// </summary>
         public Products()
         {
@@ -39,7 +48,7 @@ namespace Data
         #region Properties
 
         /// <summary>
-        /// 
+        /// Gets the list of products.
         /// </summary>
         public List<Product> ListOfProducts { get { return listProducts.ToList(); } }
 
@@ -54,35 +63,35 @@ namespace Data
         #region OtherMethods
 
         /// <summary>
-        /// 
+        /// Gets a list of all products.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A copy of the list of all products.</returns>
         public static List<Product> GetAllProducts()
         {
             return new List<Product>(listProducts);
         }
 
         /// <summary>
-        /// 
+        /// Checks if a product with the specified ID exists.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public static bool ExistProduct(int id)
+        /// <param name="id">The ID of the product to check.</param>
+        /// <returns>The existing product with the specified ID.</returns>
+        public static Product ExistProduct(int id)
         {
             foreach (Product existingProduct in listProducts)
             {
                 if (existingProduct.Id == id)
-                    return true;
+                    return existingProduct;
             }
-            return false;
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// 
+        /// Inserts a new product.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="p">The product to insert.</param>
+        /// <returns>True if the product is inserted successfully; otherwise, an exception is thrown.</returns>
+        /// <exception cref="Exception">Thrown if the product already exists.</exception>
         public static bool InsertProduct(Product p)
         {
             foreach (Product existingProduct in listProducts)
@@ -94,16 +103,30 @@ namespace Data
             return true;
         }
 
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="p"></param>
-       /// <param name="name"></param>
-       /// <param name="desc"></param>
-       /// <param name="price"></param>
-       /// <param name="quant"></param>
-       /// <returns></returns>
-       /// <exception cref="Exception"></exception>
+        /// <summary>
+        /// Verifies if a product with the specified ID exists.
+        /// </summary>
+        /// <param name="id">The ID of the product to verify.</param>
+        /// <returns>True if the product ID is valid; otherwise, false.</returns>
+        public static bool VerifyProductId(int id)
+        {
+            foreach (Product p in listProducts)
+            {
+                if (p.Id == id) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Updates the details of an existing product.
+        /// </summary>
+        /// <param name="p">The existing product to update.</param>
+        /// <param name="name">The new name of the product.</param>
+        /// <param name="desc">The new description of the product.</param>
+        /// <param name="price">The new price of the product.</param>
+        /// <param name="quant">The new quantity of the product.</param>
+        /// <returns>True if the update is successful; otherwise, an exception is thrown.</returns>
+        /// <exception cref="Exception">Thrown if the product does not exist.</exception>
         public static bool UpdateProductDetails(Product p, string name, string desc, float price, int quant)
         {
             foreach (Product existingProduct in listProducts)
@@ -121,9 +144,9 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Deletes all products.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if all products are deleted successfully.</returns>
         public static bool DeleteAllProducts()
         {
             listProducts.Clear();
@@ -131,10 +154,10 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Deletes a specific product.
         /// </summary>
-        /// <param name="u"></param>
-        /// <returns></returns>
+        /// <param name="p">The product to delete.</param>
+        /// <returns>True if the product is deleted successfully.</returns>
         public static bool DeleteProduct(Product p)
         {
             if (listProducts.Remove(p)) return true;
@@ -142,20 +165,20 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Gets the number of products.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The number of products.</returns>
         public static int NumProducts()
         {
             return listProducts.Count;
         }
 
         /// <summary>
-        /// 
+        /// Reads products from a file.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="filename">The name of the file to read from.</param>
+        /// <returns>True if the read operation is successful.</returns>
+        /// <exception cref="Exception">Thrown if there is an error during the read operation.</exception>
         public static bool ReadProductsFile(string filename)
         {
             try
@@ -178,11 +201,11 @@ namespace Data
         }
 
         /// <summary>
-        /// 
+        /// Saves products to a file.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="filename">The name of the file to save to.</param>
+        /// <returns>True if the save operation is successful.</returns>
+        /// <exception cref="Exception">Thrown if there is an error during the save operation.</exception>
         public static bool SaveProductsFile(string filename)
         {
             try
@@ -202,7 +225,6 @@ namespace Data
                 throw new Exception();
             }
         }
-
 
         #endregion
 

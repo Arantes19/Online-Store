@@ -1,7 +1,16 @@
-﻿namespace BusinessObjects
+﻿/*
+*	<copyright file="Payment" company="IPCA">
+*	</copyright>
+* 	<author>Francisco Arantes</author>
+*	<contact>a23504@alunos.ipca.pt</contact>
+*   <date>2023 19/12/2023</date>
+*	<description></description>
+**/
+
+namespace BusinessObjects
 {
     /// <summary>
-    /// Represents the payment 
+    /// Represents the payment.
     /// </summary>
     public class Payment
     {
@@ -18,7 +27,7 @@
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the Payment class.
+        /// Initializes a new instance of the Payment class with default values.
         /// </summary>
         public Payment()
         {
@@ -45,16 +54,16 @@
         #region Properties
 
         /// <summary>
-        /// 
+        /// Gets or sets the payment method.
         /// </summary>
-        public string PaymentMethod 
+        public string PaymentMethod
         {
-            get => paymentMethod; 
+            get => paymentMethod;
             set => paymentMethod = value;
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the amount paid for the order.
         /// </summary>
         public float AmmountPaid
         {
@@ -63,11 +72,11 @@
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the date and time of the payment.
         /// </summary>
         public DateTime PaymentDate
         {
-            get => paymentDate; 
+            get => paymentDate;
             set => paymentDate = value;
         }
 
@@ -76,7 +85,7 @@
         #region Operators
 
         /// <summary>
-        /// Checks if two payments are equal based on their payment method.
+        /// Equality operator for checking if two payments are equal based on their payment method.
         /// </summary>
         public static bool operator ==(Payment a, Payment b)
         {
@@ -84,7 +93,7 @@
         }
 
         /// <summary>
-        /// Checks if two payments are not equal based on their payment method.
+        /// Inequality operator for checking if two payments are not equal based on their payment method.
         /// </summary>
         public static bool operator !=(Payment a, Payment b)
         {
@@ -96,18 +105,26 @@
         #region Overrides
 
         /// <summary>
-        /// 
+        /// Determines whether the specified object is equal to the current object.
         /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>True if the objects are equal; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
             if (obj is Payment)
             {
                 Payment p = (Payment)obj;
-                if(this == p) return true;
+                if (this == p)
+                    return true;
             }
             return false;
         }
 
+        /// <summary>
+        /// Gets the hash code for this object.
+        /// </summary>
+        /// <returns>A hash code value.</returns>
+        /// <exception cref="NotImplementedException">Thrown if GetHashCode is not implemented.</exception>
         public override int GetHashCode()
         {
             throw new NotImplementedException();
@@ -117,7 +134,6 @@
 
         #region OtherMethods
         #endregion
-
 
         #endregion
     }
