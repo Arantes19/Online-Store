@@ -33,9 +33,9 @@ namespace BusinessObjects
         {
             this.name = string.Empty;
             this.address = string.Empty;
-            this.ZipCode = -1;
-            this.PhoneNumber = -1;
-            this.Nif = -1;
+            this.zipCode = -1;
+            this.phoneNumber = -1;
+            this.nif = -1;
         }
 
         /// <summary>
@@ -46,13 +46,14 @@ namespace BusinessObjects
         /// <param name="address"></param>
         /// <param name="zipCode"></param>
         /// <param name="phoneNumber"></param>
-        public Costumer(int nif, string name, string address, int zipCode, int phoneNumber) : base(email, password, balance)
+        public Costumer(int nif, string name, string address, int zipCode, int phoneNumber, string email, string password, float balance) 
+            :base(email, password, balance)
         {
             this.name = name;
-            this.Nif = nif;
+            this.nif = nif;
             this.address = address;
-            this.ZipCode = zipCode;
-            this.PhoneNumber = phoneNumber;
+            this.zipCode = zipCode;
+            this.phoneNumber = phoneNumber;
         }
 
         #endregion
@@ -118,6 +119,33 @@ namespace BusinessObjects
 
         #endregion
 
+        #region Operators
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static bool operator == (Costumer a, Costumer b)
+        {
+            if (a.nif == b.nif) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static bool operator != (Costumer a, Costumer b)
+        {
+           return !(a == b);
+        }
+
+        #endregion
+
         #region Overrides
 
         /// <summary>
@@ -126,7 +154,7 @@ namespace BusinessObjects
         /// <returns>A string containing the customer's information.</returns>
         public override string ToString()
         {
-            return CostumerInfo();
+            return CostumerFile();
         }
 
         /// <summary>
@@ -153,24 +181,28 @@ namespace BusinessObjects
         ///  Retrieves a string representation of the customer's information.
         /// </summary>
         /// <returns>A formatted string containing the customer's information.</returns>
-        public string CostumerInfo()
+        public string CostumerFile()
         {
-            return string.Format("Name: {0}, Email: {1}, Password: {2}, Address: {3}, ZipCode: {4}, PhoneNumber: {5}, NIF: {6}", name, email, password, address, zipCode, phoneNumber, nif);
+            return string.Format("Name: {0}, Email: {1}, Password: {2}, Address: {3}, ZipCode: {4}, PhoneNumber: {5}," +
+                "  NIF: {6}, Balance: {7}", name, Email, Password, address, zipCode, phoneNumber, nif, Balance);
         }
 
         /// <summary>
-        /// Checks if a customer with the specified NIF already exists in the given array of customers.
+        /// 
         /// </summary>
-        /// <param name="costumers">The array of customers to search through.</param>
-        /// <param name="nif">The NIF to check for existence.</param>
-        /// <returns>True if a customer with the specified NIF exists; otherwise, false.</returns>
-        public bool ExistCostumer(Costumer[] costumers, int nif)
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public int CompareTo(Costumer c)
         {
-            foreach (Costumer c in costumers)
-                if (c.nif == nif) return true;
-            return false;
+            if (c is null) return 1;
+            else return 0;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public override int GetHashCode()
         {
             throw new NotImplementedException();

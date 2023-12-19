@@ -9,7 +9,6 @@
 
         private string adminUsername;
         private int adminKey;
-        private static int numAdmin = 0;
 
         #endregion
 
@@ -18,43 +17,26 @@
         #region Constructors
 
         /// <summary>
-        /// Initializes static members of the Admin class.
-        /// </summary>
-        static Admin() => numAdmin = 0;
-
-        /// <summary>
         /// Initializes a new instance of the Admin class with default values.
         /// </summary>
-        public Admin()
+        public Admin() : base()
         {
-            email = "";
-            password = "";
-            adminUsername = "";
-            adminKey = 0;
+            this.AdminUsername = string.Empty;
+            this.AdminKey = 0;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the Admin class with specified email, password, and key.
-        /// </summary>
-        /// <param name="email">The email address of the administrator.</param>
-        /// <param name="password">The password for the administrator's account.</param>
-        /// <param name="key">The key associated with the administrator.</param>
-        public Admin(string email, string password, int key) : base(email, password)
-        {
-            adminKey = key;
-        }
 
         /// <summary>
-        /// Initializes a new instance of the Admin class with specified username, email, password, and key.
+        /// 
         /// </summary>
-        /// <param name="username">The username of the administrator.</param>
-        /// <param name="email">The email address of the administrator.</param>
-        /// <param name="password">The password for the administrator's account.</param>
-        /// <param name="key">The key associated with the administrator.</param>
+        /// <param name="username"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="key"></param>
         public Admin(string username, string email, string password, int key) : base(email, password)
         {
-            adminUsername = username;
-            adminKey = key;
+            this.AdminUsername = username;
+            this.AdminKey = key;
         }
 
         #endregion
@@ -81,6 +63,31 @@
                     adminKey = value;
             }
             get { return adminKey; }
+        }
+
+        #endregion
+
+        #region Operators
+
+        /// <summary>
+        /// Redefinição do operador ==
+        /// </summary>
+        /// <param name="a">a.</param>
+        /// <param name="b">The b.</param>
+        public static bool operator ==(Admin a, Admin b)
+        {
+            if (a.adminKey == b.adminKey)
+                return true;
+            return false;
+        }
+        /// <summary>
+        /// Redefinição do operador !=
+        /// </summary>
+        /// <param name="a">a.</param>
+        /// <param name="b">The b.</param>
+        public static bool operator !=(Admin a, Admin b)
+        {
+            return (!(a == b));
         }
 
         #endregion
@@ -123,22 +130,25 @@
         /// <returns>A formatted string containing the administrator's information.</returns>
         public string AdminInfo()
         {
-            return string.Format("Name: {0}, Email: {1}, Password: {2}, Key: {3}", adminUsername, email, password, adminKey);
+            return string.Format("Name: {0}, Email: {1}, Password: {2}, Key: {3}", adminUsername, Email, Password, adminKey);
         }
 
         /// <summary>
-        /// Checks if an administrator with the specified key already exists in the given array of administrators.
+        /// 
         /// </summary>
-        /// <param name="admins">The array of administrators to search through.</param>
-        /// <param name="key">The key to check for existence.</param>
-        /// <returns>True if an administrator with the specified key exists; otherwise, false.</returns>
-        public bool ExistAdmin(Admin[] admins, int key)
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public int CompareTo(Admin a)
         {
-            foreach (Admin a in admins)
-                if (a.AdminKey == key) return true;
-            return false;
+            if (a is null) return 1;
+            else return 0;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public override int GetHashCode()
         {
             throw new NotImplementedException();

@@ -29,9 +29,20 @@ namespace BusinessObjects
         /// </summary>
         public User() 
         {
-            this.Email = string.Empty;
-            this.Password = string.Empty;
-            this.Balance = 0.0f;
+            this.email = string.Empty;
+            this.password = string.Empty;
+            this.balance = 0.0f;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        public User(string email, string password)
+        {
+            this.email = email;
+            this.password = password;
         }
 
         /// <summary>
@@ -41,8 +52,8 @@ namespace BusinessObjects
         /// <param name="password">The password for the user's account.</param>
         public User(string email, string password, float balance)
         {
-            this.Email = email;
-            this.Password = password;
+            this.email = email;
+            this.password = password;
             this.Balance = balance;
         }
 
@@ -79,7 +90,7 @@ namespace BusinessObjects
 
         #endregion
 
-        #region Operadores
+        #region Operators
 
         /// <summary>
         ///
@@ -132,6 +143,16 @@ namespace BusinessObjects
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region OtherMethods
@@ -142,7 +163,7 @@ namespace BusinessObjects
         /// <returns></returns>
         public string UserFile()
         {
-            return string.Format("|Email: {1} | Password: {2} | Saldo: {3}|", email, password, balance);
+            return string.Format("Email: {0}, Password: {1}, Saldo: {2}", email, password, balance);
         }
 
         /// <summary>
@@ -153,19 +174,7 @@ namespace BusinessObjects
         public int CompareTo(User u)
         {
             if (u is null) return 1;
-            if (email == u.email) return -1;
-            else if (email != u.email) return 0;
             else return 0;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public override int GetHashCode()
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
