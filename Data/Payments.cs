@@ -1,9 +1,4 @@
 ﻿using BusinessObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data
 {
@@ -14,7 +9,7 @@ namespace Data
     {
         #region Atributes
 
-        static List<Payment> payments = new List<Payment>();
+        private static List<Payment> listPayments;
 
         #endregion
 
@@ -22,7 +17,36 @@ namespace Data
 
         #region Constructors
 
+        /// <summary>
+        /// 
+        /// </summary>
+        static Payments()
+        {
+            listPayments = new List<Payment>();
+        }
+
+        public Payments() { }
+
         #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Payment> ListPayments { get { return listPayments; }}
+
+        #endregion
+
+        #region Operators
+        #endregion
+
+        #region Overrides
+        #endregion
+
+        #region Other Methods
+        #endregion
+
 
         #endregion
     }

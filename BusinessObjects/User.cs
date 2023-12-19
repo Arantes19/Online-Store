@@ -16,7 +16,6 @@ namespace BusinessObjects
 
         private string email;
         private string password;
-        private float balance;
 
         #endregion
 
@@ -31,7 +30,6 @@ namespace BusinessObjects
         {
             this.email = string.Empty;
             this.password = string.Empty;
-            this.balance = 0.0f;
         }
 
         /// <summary>
@@ -43,18 +41,6 @@ namespace BusinessObjects
         {
             this.email = email;
             this.password = password;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the User class with specified email and password.
-        /// </summary>
-        /// <param name="email">The email address of the user.</param>
-        /// <param name="password">The password for the user's account.</param>
-        public User(string email, string password, float balance)
-        {
-            this.email = email;
-            this.password = password;
-            this.Balance = balance;
         }
 
         #endregion
@@ -77,15 +63,6 @@ namespace BusinessObjects
         {
             get { return password; }
             set => password = value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public float Balance
-        {
-            get { return balance; }
-            set => balance = value; 
         }
 
         #endregion
@@ -163,7 +140,7 @@ namespace BusinessObjects
         /// <returns></returns>
         public string UserFile()
         {
-            return string.Format("Email: {0}, Password: {1}, Saldo: {2}", email, password, balance);
+            return string.Format("Email: {0}, Password: {1}", email, password);
         }
 
         /// <summary>

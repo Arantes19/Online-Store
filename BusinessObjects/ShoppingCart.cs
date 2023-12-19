@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BusinessObjects
+﻿namespace BusinessObjects
 {
     /// <summary>
     /// Representes the ShoppingCart
@@ -13,10 +7,9 @@ namespace BusinessObjects
     {
         #region Attributes
 
+        private int cartId;
         private int itemCount;
-        private bool isCartEmpty;
-        private bool isCartFull;
-        private float totalPrice;
+        private bool cartStatus;
 
         #endregion
 
@@ -29,30 +22,36 @@ namespace BusinessObjects
         /// </summary>
         public ShoppingCart() 
         {
+            this.cartId = 0;
             this.itemCount = 0;
-            this.isCartEmpty = false;
-            this.isCartFull = false;
-            this.totalPrice = 0;
+            this.cartStatus = false; //empty
         }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="itemCount"></param>
-        /// <param name="isCartEmpty"></param>
-        /// <param name="isCartFull"></param>
-        /// <param name="totalPrice"></param>
-        public ShoppingCart(int itemCount, bool isCartEmpty, bool isCartFull, float totalPrice)
+        /// <param name="cartStatus"></param>
+        public ShoppingCart(int id, int itemCount, bool cartStatus)
         {
+            this.cartId = id;
             this.itemCount = itemCount;
-            this.isCartEmpty = isCartEmpty;
-            this.isCartFull = isCartFull;
-            this.totalPrice = totalPrice; 
+            this.cartStatus = cartStatus; 
         }
 
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int CartId
+        {
+            get => cartId;
+            set => cartId= value;
+        }
 
         /// <summary>
         /// 
@@ -66,30 +65,11 @@ namespace BusinessObjects
         /// <summary>
         /// 
         /// </summary>
-        public bool IsCartFull
+        public bool CartStatus
         {
-            get => isCartFull;
-            set { isCartFull = value; }
+            get => cartStatus;
+            set { cartStatus = value; }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool IsCartEmpty
-        {
-            get => isCartEmpty;
-            set { isCartEmpty = value; }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public float TotalPrice
-        {
-            get => totalPrice;
-            set { totalPrice = value; }
-        }
-
 
         #endregion
 
@@ -118,6 +98,27 @@ namespace BusinessObjects
         #endregion
 
         #region OtherMethods
+
+        /// <summary>
+        /// Retrieves a string representation of the administrator's information.
+        /// </summary>
+        /// <returns>A formatted string containing the administrator's information.</returns>
+        public string CartInfo()
+        {
+            return string.Format("ShoppingCart Id: {0}, Items : {1}, Status: {2}", cartId, itemCount, cartStatus);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public int CompareTo(ShoppingCart s)
+        {
+            if (s is null) return 1;
+            else return 0;
+        }
+
         #endregion
 
         #endregion

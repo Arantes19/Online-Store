@@ -1,9 +1,5 @@
 ﻿using BusinessObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Data
 {
@@ -14,7 +10,7 @@ namespace Data
     {
         #region Attributes
 
-        static List<Costumer> costumers = new List<Costumer>();
+        private static List<Costumer> listCostumers;
 
         #endregion
 
@@ -26,11 +22,31 @@ namespace Data
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public Costumers() { }
+        static Costumers() 
+        {
+            listCostumers = new List<Costumer>();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Costumers()
+        {
+
+        }
 
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Costumer> CostumersList { get { return listCostumers.ToList(); } }
+
+        #endregion
+
+        #region Operators
         #endregion
 
         #region Overrides
@@ -38,73 +54,195 @@ namespace Data
 
         #region OtherMethods
 
-        /*public static bool InsereUtente(Costumer c, int nif)
-        {
-            if (!costumers.ContainsKey(nif))
-                costumers.Add(nif, new List<Costumer>());
-            if (!costumers[nif].Contains(c))
-            {
-                costumers[nif].Add(c);
-                return true;
-            }
-            return false;
-        }*/
-
-        /*
         /// <summary>
-        /// Adds a customer to the collection if it doesn't already exist and the maximum limit is not reached.
+        /// Authenticates a customer based on the provided credentials.
         /// </summary>
-        /// <param name="costumer">The customer to be added</param>
-        /// <returns>True if the customer is added successfully, false otherwise.</returns>
-        public bool AddCostumer(Costumer costumer)
+        /// <param name="email">The email address of the customer.</param>
+        /// <param name="password">The password of the customer.</param>
+        /// <returns>True if authentication is successful; otherwise, false.</returns>
+        public static bool AuthenticateCostumer(string email, string password)
         {
-            foreach (Costumer c in costumers)
+            foreach (Costumer costumer in listCostumers)
             {
-                if (c.Nif == 0)
-                    continue;
-                if (c.Equals(costumer) || (numCostumers >= MAXCOSTUMERS))
-                    return false;
-            }
-            costumers[numCostumers] = costumer;
-            numCostumers++;
-            return true;
-        }
-
-        /// <summary>
-        /// Deletes all customers in the collection by creating new Costumer objects.
-        /// </summary>
-        /// <returns>True if deletion is successful, false otherwise.</returns>
-        public bool DeleteAllCostumers()
-        {
-            for (int i = 0; i < costumers.Length; i++)
-            {
-                if (costumers[i].Nif is 0) continue;
-                else costumers[i] = new Costumer();
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Deletes a specific customer from the collection.
-        /// </summary>
-        /// <param name="c">The customer to be deleted.</param>
-        /// <returns>True if the customer is deleted successfully, false otherwise.</returns>
-        public bool DeleteCostumer(Costumer c)
-        {
-            for (int i = 0; i < numCostumers; i++)
-            {
-                if (costumers[i].Equals(c))
+                if (costumer.Email == email && costumer.Password == password)
                 {
-                    for (int j = i; j < numCostumers - 1; j++)
-                        costumers[j] = costumers[j + 1];
-                    costumers[numCostumers - 1] = new Costumer();
-                    numCostumers--;
                     return true;
                 }
             }
             return false;
         }
-        */
+
+        /// <summary>
+        /// Retrieves a list of all customers.
+        /// </summary>
+        /// <returns>A copy of the list of all customers.</returns>
+        public static List<Costumer> GetAllCustomers()
+        {
+            return new List<Costumer>(listCostumers);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <returns></returns>
+        public static bool ExistCostumer(int nif)
+        {
+            foreach(Costumer existingCostumer in listCostumers)
+            {
+                if(existingCostumer.Nif == nif) return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static bool InsertCostumer(Costumer c)
+        {
+            foreach (Costumer existingCostumer in listCostumers)
+            {
+                if (existingCostumer.Equals(c)) throw new Exception();
+            }
+            listCostumers.Add(c);
+            listCostumers.Sort();
+            return true;
+        }
+
+        /// <summary>
+        /// Adds balance to the customer's account.
+        /// </summary>
+        /// <param name="c">The customer to update.</param>
+        /// <param name="amount">The amount to add to the balance.</param>
+        public static void AddBalance(Costumer c, float amount)
+        {
+            foreach (Costumer existingCustomer in listCostumers)
+            {
+                if (existingCustomer.Equals(c))
+                {
+                    existingCustomer.Balance += amount;
+                    return;
+                }
+            }
+            throw new Exception();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="email"></param>
+        /// <param name="pass"></param>
+        /// <param name="name"></param>
+        /// <param name="address"></param>
+        /// <param name="zipCode"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="nif"></param>
+        /// <returns></returns>
+        public static bool UpdateCostumer(Costumer u, string email, string pass, string name, string address, int zipCode, int phoneNumber, int nif)
+        {
+            foreach(Costumer existingCostumer in listCostumers)
+            {
+                if (existingCostumer.Equals(u))
+                {
+                    existingCostumer.UserName = name;
+                    existingCostumer.Address = address;
+                    existingCostumer.ZipCode = zipCode;
+                    existingCostumer.PhoneNumber = phoneNumber;
+                    existingCostumer.Nif = nif;
+                    existingCostumer.Email = email;
+                    existingCostumer.Password = pass;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool DeleteAllCostumers()
+        {
+            listCostumers.Clear();
+            return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool DeleteCostumer(Costumer c)
+        {
+            if(listCostumers.Remove(c)) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static int NumCostumers()
+        {
+            return listCostumers.Count;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static bool ReadUsersFile(string filename)
+        {
+            try
+            {
+                if (!File.Exists(filename)) return false;
+                Stream stream;
+                using (stream = File.Open(filename, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    b.Serialize(stream, listCostumers);
+                    stream.Close();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static bool SaveUsersFile(string filename)
+        {
+            try
+            {
+                Stream stream;
+                using (stream = File.Open(filename, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    b.Serialize(stream, listCostumers);
+                    stream.Close();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception();
+            }
+        }
 
         #endregion
 

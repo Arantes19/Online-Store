@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BusinessObjects
+﻿namespace BusinessObjects
 {
     /// <summary>
     /// Represents a product.
@@ -16,7 +10,7 @@ namespace BusinessObjects
         private int id;
         private string name;
         private string description;
-        private int price;
+        private float price;
         private int quantity;
 
         #endregion
@@ -33,7 +27,7 @@ namespace BusinessObjects
             this.id = 0;
             this.name = string.Empty;
             this.description = string.Empty;
-            this.price = 0;
+            this.price = 0.0f;
             this.quantity = 0;
         }
 
@@ -45,7 +39,7 @@ namespace BusinessObjects
         /// <param name="description"></param>
         /// <param name="price"></param>
         /// <param name="quantity"></param>
-        public Product(int id, string name, string description, int price, int quantity)
+        public Product(int id, string name, string description, float price, int quantity)
         {
             this.id = id;
             this.name = name;
@@ -88,7 +82,7 @@ namespace BusinessObjects
         /// <summary>
         /// Gets or sets the price of the product.
         /// </summary>
-        public int Price
+        public float Price
         {
             set => price = value;
             get { return price; }

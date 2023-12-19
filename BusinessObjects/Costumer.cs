@@ -19,6 +19,7 @@ namespace BusinessObjects
         private int zipCode;
         private int phoneNumber;
         private int nif;
+        private float balance;
 
         #endregion
 
@@ -36,6 +37,7 @@ namespace BusinessObjects
             this.zipCode = -1;
             this.phoneNumber = -1;
             this.nif = -1;
+            this.balance = 0.0f;
         }
 
         /// <summary>
@@ -47,13 +49,14 @@ namespace BusinessObjects
         /// <param name="zipCode"></param>
         /// <param name="phoneNumber"></param>
         public Costumer(int nif, string name, string address, int zipCode, int phoneNumber, string email, string password, float balance) 
-            :base(email, password, balance)
+            :base(email, password)
         {
             this.name = name;
             this.nif = nif;
             this.address = address;
             this.zipCode = zipCode;
             this.phoneNumber = phoneNumber;
+            this.balance = balance;
         }
 
         #endregion
@@ -115,6 +118,19 @@ namespace BusinessObjects
                     nif = value;
             }
             get { return nif; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public float Balance
+        {
+            get { return balance; }
+            set
+            {
+                if (value > 0)
+                    balance = value;
+            }
         }
 
         #endregion
