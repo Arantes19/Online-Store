@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Data.Admins">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAYAIAAAAIAAIAIIACAAAABAAAEAAAAAQAIAAAAAAA=</HashCode>
+      <FileName>Admins.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Costumers">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAABAAAAACAAAAACAEABAAAAAAAEgAAAIAAAABABAAA=</HashCode>
+      <FileName>Costumers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Orders">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAIAAAAAAEAACAAAFCAAAAAAAg=</HashCode>
+      <FileName>Orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Payments">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Payments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Products">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAACAIgAKAAAAAgAAACAAAAAAgAAQAIAAQA=</HashCode>
+      <FileName>Products.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.ShoppingCarts">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAAAIAgQAAgAEAAAAAgAAAAAAQAAAAAAAAgAAAAAEA=</HashCode>
+      <FileName>ShoppingCarts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Users">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAACAAAAEAAIAEAEAAAAAAAgCQAAAEIEAAAA=</HashCode>
+      <FileName>Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

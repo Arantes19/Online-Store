@@ -242,7 +242,7 @@ namespace BusinessRules
         {
             try
             {
-                Costumers.Read(filename);
+                Costumers.ReadCostumersFile(filename);
                 return true;
             }
             catch (ReadFileException e)

@@ -10,4 +10,10 @@
     <ProjectReference Include="..\BusinessObjects\BusinessObjects.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Exceptions">
+      <HintPath>..\Exceptions\bin\Debug\net8.0\Exceptions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

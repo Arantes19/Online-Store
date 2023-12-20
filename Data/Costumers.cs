@@ -9,6 +9,8 @@
 
 using BusinessObjects;
 using System.Runtime.Serialization.Formatters.Binary;
+using static Exceptions.CostumersException;
+using static Exceptions.FileExceptions;
 
 namespace Data
 {
@@ -112,13 +114,20 @@ namespace Data
         /// <exception cref="Exception">Thrown if there is an exception during insertion.</exception>
         public static bool InsertCostumer(Costumer c)
         {
-            foreach (Costumer existingCostumer in listCostumers)
+            try
             {
-                if (existingCostumer.Equals(c)) throw new Exception();
+                foreach (Costumer existingCostumer in listCostumers)
+                {
+                    if (existingCostumer.Equals(c)) throw new CostumerAlreadyExistsException("Customer already exists.");
+                }
+                listCostumers.Add(c);
+                listCostumers.Sort();
+                return true;
             }
-            listCostumers.Add(c);
-            listCostumers.Sort();
-            return true;
+            catch (Exception ex) 
+            { 
+                throw new Exception($"Error inserting customer: {ex.Message}", ex);
+            }
         }
 
         /// <summary>
@@ -130,15 +139,19 @@ namespace Data
         /// <exception cref="Exception">Thrown if there is an exception during the update.</exception>
         public static bool AddBalance(Costumer c, float amount)
         {
-            foreach (Costumer existingCustomer in listCostumers)
+            try
             {
-                if (existingCustomer.Equals(c))
+                foreach (Costumer existingCustomer in listCostumers)
                 {
-                    existingCustomer.Balance += amount;
-                    return true;
+                    if (existingCustomer.Equals(c))
+                    {
+                        existingCustomer.Balance += amount;
+                        return true;
+                    }
                 }
+                throw new CostumerNotFoundException("Customer not found.");
             }
-            throw new Exception();
+            catch(Exception ex) { throw new Exception($"Error adding balance: {ex.Message}", ex); }
         }
 
         /// <summary>
@@ -225,7 +238,7 @@ namespace Data
             catch (Exception)
             {
 
-                throw new Exception();
+                throw new ReadFileException(e.Message + ": " + "Error Saving File!!!");
             }
         }
 
@@ -251,7 +264,7 @@ namespace Data
             catch (Exception)
             {
 
-                throw new Exception();
+                throw new SaveFileException(e.Message + ": " + "Error Saving File!!!");
             }
         }
 

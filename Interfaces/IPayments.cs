@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    internal interface IPayments
+    public interface IPayments
     {
+
     }
 }

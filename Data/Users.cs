@@ -1,5 +1,8 @@
 ﻿using BusinessObjects;
+using Exceptions;
 using System.Runtime.Serialization.Formatters.Binary;
+using static Exceptions.FileExceptions;
+using static Exceptions.UsersExceptions;
 
 namespace Data
 {
@@ -90,7 +93,7 @@ namespace Data
         {
             foreach (User existingUser in listUsers)
             {
-                if (existingUser.Equals(u)) throw new Exception();
+                if (existingUser.Equals(u)) throw new UserAlreadyExistException("User Already Exists");
             }
             listUsers.Add(u);
             listUsers.Sort();
@@ -114,7 +117,7 @@ namespace Data
                     return true;
                 }
             }
-            throw new Exception();
+            throw new UserNotFoundException("User Not Found");
         }
 
         /// <summary>
@@ -134,7 +137,7 @@ namespace Data
                     return true;
                 }
             }
-            throw new Exception();
+            throw new UserNotFoundException("User Not Found");
         }
 
         /// <summary>
@@ -187,9 +190,9 @@ namespace Data
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new Exception();
+                throw new ReadFileException(e.Message + ": " + "Error Saving File!!!");
             }
         }
 
@@ -214,7 +217,7 @@ namespace Data
             }
             catch (Exception)
             {
-                throw new Exception();
+                throw new SaveFileException(e.Message + ": " + "Error Saving File!!!");
             }
         }
 

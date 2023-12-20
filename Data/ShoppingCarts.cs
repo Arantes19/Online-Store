@@ -9,6 +9,7 @@
 
 using BusinessObjects;
 using System.Runtime.Serialization.Formatters.Binary;
+using static Exceptions.FileExceptions;
 
 namespace Data
 {
@@ -155,7 +156,7 @@ namespace Data
             catch (Exception)
             {
 
-                throw new Exception();
+                throw new ReadFileException(e.Message + ": " + "Error Saving File!!!");
             }
         }
 
@@ -181,7 +182,7 @@ namespace Data
             catch (Exception)
             {
 
-                throw new Exception();
+                throw new SaveFileException(e.Message + ": " + "Error Saving File!!!");
             }
         }
         #endregion
