@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Data/1.0.0": {
         "dependencies": {
-          "BusinessObjects": "1.0.0"
+          "BusinessObjects": "1.0.0",
+          "Exceptions": "1.0.0"
         },
         "runtime": {
           "Data.dll": {}
@@ -17,6 +18,11 @@
       "BusinessObjects/1.0.0": {
         "runtime": {
           "BusinessObjects.dll": {}
+        }
+      },
+      "Exceptions/1.0.0": {
+        "runtime": {
+          "Exceptions.dll": {}
         }
       }
     }
@@ -28,6 +34,11 @@
       "sha512": ""
     },
     "BusinessObjects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Exceptions/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

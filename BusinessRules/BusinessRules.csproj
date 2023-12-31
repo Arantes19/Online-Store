@@ -7,15 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="BusinessObjects">
-      <HintPath>..\BusinessObjects\bin\Debug\net6.0\BusinessObjects.dll</HintPath>
-    </Reference>
-    <Reference Include="Data">
-      <HintPath>..\Data\bin\Debug\net6.0\Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Exceptions">
-      <HintPath>..\Exceptions\bin\Debug\net8.0\Exceptions.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\BusinessObjects\BusinessObjects.csproj" />
+    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

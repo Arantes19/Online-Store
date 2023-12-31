@@ -7,50 +7,74 @@
 *	<description></description>
 **/
 
+using BusinessObjects;
+using Data;
+using BusinessRules;
+using Exceptions;
+
 namespace Aplication
 {
     public class IO
     {
         public static bool Input()
         {
-            /* Testing Costumer class
-            Costumer costumer1 = new Costumer("John Doe", "john@example.com", "password123");
-            costumer1.Address = "123 Main St";
-            costumer1.ZipCode = 4720794;
-            costumer1.PhoneNumber = 987654321;
-            costumer1.Nif = 123456789;
-
-            Console.WriteLine("Costumer Information:");
-            Console.WriteLine(costumer1.CostumerInfo());
-
-            // Testing Costumers class
-            Costumers costumersManager = new Costumers();
-
-            // Adding a costumer
-            bool addCostumerResult = costumersManager.AddCostumer(costumer1);
-            Console.WriteLine($"\nAdd Costumer Result: {addCostumerResult}");
-
-            // Displaying all costumers
-            Console.WriteLine("\nAll Costumers:");
-            foreach (Costumer c in costumersManager.AllCostumers)
+            #region BO
+            
+            //Creating random objects
+            
+            List<User> users = new List<User> 
             {
-                Console.WriteLine(c);
-            }
+                new User("francisco@gmail.com", "francisco"),
+                new User("miguel@gmail.com", "miguel"),
+                new User("jose@gmail.com", "jose"),
+            };
 
-            // Deleting a costumer
-            bool deleteCostumerResult = costumersManager.DeleteCostumer(costumer1);
-            Console.WriteLine($"\nDelete Costumer Result: {deleteCostumerResult}");
-
-            // Displaying all costumers after deletion
-            Console.WriteLine("\nAll Costumers After Deletion:");
-            foreach (Costumer c in costumersManager.AllCostumers)
+            List<Costumer> costumersList= new List<Costumer>
             {
-                Console.WriteLine(c);
-            }
-            return true;
-            */
+                new Costumer(254140888, "costumer1", "amares", 4720794, 910121660, "costumer1@gmail.com", "costumer1", new ShoppingCart()),
+                new Costumer(123456789, "costumer2", "braga", 4720342, 912321999, "costumer2@gmail.com", "costumer2", new ShoppingCart()),
+                new Costumer(321312111, "costumer3", "porto", 5730882, 927831222, "costumer3@gmail.com", "costumer3", new ShoppingCart()),
+            };
 
-            //User u = new User("a23504@alunos.ipca.pt", "bomaluno123");
+            Admin a0 = new Admin("admin1", "admin1@gmail.com", "adminum1", 922122);
+
+            List<Product> productList = new List<Product>
+            {
+                 new Product(1, "Book1", "C", (float)9.99, 10),
+                 new Product(2, "Book2", "C#", (float)12.34, 10),
+                 new Product(3, "Book3", "JS", (float)14.99, 10),
+                 new Product(4, "Book4", "Python", (float)12.34, 10),
+                 new Product(5, "Book5", "C++", (float)14.99, 10),
+                 new Product(6, "Book6", "Kotlin", (float)19.99, 10),
+            };
+
+            ShoppingCart sp0 = new ShoppingCart(1213112, 1, false, productList);
+
+            Order o1 = new Order(1213112, 3, new DateOnly(2023, 1, 31), new DateOnly(2023, 2, 5), Order.OrderStatus.Processing);
+            Order o2 = new Order(1423112, 2, new DateOnly(2023, 3, 3), new DateOnly(2023, 3, 10), Order.OrderStatus.Processing);
+            Order o3 = new Order(1213112, 1, new DateOnly(2023, 4, 2), new DateOnly(2023, 5, 6), Order.OrderStatus.Processing);
+
+            Payment pm0 = new Payment("Paypal", (float)13.99, new DateTime(2023, 1, 31, 9, 30, 30));
+
+            #endregion
+
+            #region Data
+
+            //Testar a leitura de ficheiros
+            try
+            {
+                bool aux = Rules.ReadUsersFileBR("users.txt");
+                aux = Rules.ReadCustomersFileBR("costumers.txt");
+                aux = Rules.ReadProductsFileBR("products.txt");
+                aux = Rules.ReadAdminsFileBR("admins.txt");
+            }
+            catch (FileExceptions.ReadFileException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+            #endregion
+
 
             return true;
 

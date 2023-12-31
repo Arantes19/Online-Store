@@ -11,6 +11,16 @@
         "runtime": {
           "bin/placeholder/BusinessObjects.dll": {}
         }
+      },
+      "Exceptions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Exceptions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Exceptions.dll": {}
+        }
       }
     }
   },
@@ -19,11 +29,17 @@
       "type": "project",
       "path": "../BusinessObjects/BusinessObjects.csproj",
       "msbuildProject": "../BusinessObjects/BusinessObjects.csproj"
+    },
+    "Exceptions/1.0.0": {
+      "type": "project",
+      "path": "../Exceptions/Exceptions.csproj",
+      "msbuildProject": "../Exceptions/Exceptions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BusinessObjects >= 1.0.0"
+      "BusinessObjects >= 1.0.0",
+      "Exceptions >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -32,11 +48,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Data\\Data.csproj",
+      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Data\\Data.csproj",
       "packagesPath": "C:\\Users\\arant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Data\\obj\\",
+      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arant\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +69,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj": {
-              "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj"
+            "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\BusinessObjects\\BusinessObjects.csproj": {
+              "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\BusinessObjects\\BusinessObjects.csproj"
+            },
+            "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Exceptions\\Exceptions.csproj": {
+              "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Exceptions\\Exceptions.csproj"
             }
           }
         }

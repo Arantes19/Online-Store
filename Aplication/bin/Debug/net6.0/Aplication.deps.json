@@ -7,14 +7,69 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Aplication/1.0.0": {
+        "dependencies": {
+          "BusinessObjects": "1.0.0",
+          "BusinessRules": "1.0.0",
+          "Data": "1.0.0",
+          "Exceptions": "1.0.0"
+        },
         "runtime": {
           "Aplication.dll": {}
+        }
+      },
+      "BusinessObjects/1.0.0": {
+        "runtime": {
+          "BusinessObjects.dll": {}
+        }
+      },
+      "BusinessRules/1.0.0": {
+        "dependencies": {
+          "BusinessObjects": "1.0.0",
+          "Data": "1.0.0",
+          "Exceptions": "1.0.0"
+        },
+        "runtime": {
+          "BusinessRules.dll": {}
+        }
+      },
+      "Data/1.0.0": {
+        "dependencies": {
+          "BusinessObjects": "1.0.0",
+          "Exceptions": "1.0.0"
+        },
+        "runtime": {
+          "Data.dll": {}
+        }
+      },
+      "Exceptions/1.0.0": {
+        "runtime": {
+          "Exceptions.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Aplication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BusinessObjects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BusinessRules/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Exceptions/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

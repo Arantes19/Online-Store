@@ -9,6 +9,7 @@
 
 namespace BusinessObjects
 {
+    [Serializable]
     /// <summary>
     /// Represents a product.
     /// </summary>

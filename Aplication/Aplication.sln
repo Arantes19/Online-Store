@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessRules", "..\Busines
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObjects", "..\BusinessObjects\BusinessObjects.csproj", "{F5B1CA8F-D699-4419-A229-CF103B3F1876}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "..\Exceptions\Exceptions.csproj", "{458FD8C3-E9D0-4B9A-914D-A6C839B41EA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exceptions", "..\Exceptions\Exceptions.csproj", "{458FD8C3-E9D0-4B9A-914D-A6C839B41EA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "..\Interfaces\Interfaces.csproj", "{C5A7B9F0-1A47-4450-A21E-24C53AE6308E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "..\Interfaces\Interfaces.csproj", "{C5A7B9F0-1A47-4450-A21E-24C53AE6308E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{7037299F-A1C6-428C-937A-2886163CD2BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C5A7B9F0-1A47-4450-A21E-24C53AE6308E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5A7B9F0-1A47-4450-A21E-24C53AE6308E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5A7B9F0-1A47-4450-A21E-24C53AE6308E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7037299F-A1C6-428C-937A-2886163CD2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7037299F-A1C6-428C-937A-2886163CD2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7037299F-A1C6-428C-937A-2886163CD2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7037299F-A1C6-428C-937A-2886163CD2BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

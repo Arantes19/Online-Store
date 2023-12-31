@@ -9,6 +9,7 @@
 
 namespace BusinessObjects
 {
+    [Serializable]
     /// <summary>
     /// Represents an administrator, extending the User class.
     /// </summary>

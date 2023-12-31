@@ -9,6 +9,7 @@
 
 namespace BusinessObjects
 {
+    [Serializable]
     /// <summary>
     /// Represents a customer, extending the User class.
     /// </summary>
@@ -59,7 +60,7 @@ namespace BusinessObjects
         /// <param name="balance">The balance of the customer</param>
         /// <param name="cart">The Cart of the customer</param>
         /// <inheritdoc cref="User"/>
-        public Costumer(int nif, string name, string address, int zipCode, int phoneNumber, string email, string password, float balance, ShoppingCart cart) 
+        public Costumer(int nif, string name, string address, int zipCode, int phoneNumber, string email, string password, ShoppingCart cart) 
             :base(email, password)
         {
             this.name = name;
@@ -67,7 +68,7 @@ namespace BusinessObjects
             this.address = address;
             this.zipCode = zipCode;
             this.phoneNumber = phoneNumber;
-            this.balance = balance;
+            this.balance = 0.0f;
             this.cart = cart;
         }
 

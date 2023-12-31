@@ -13,18 +13,14 @@ Desenvolver capacidades de programacao em C#;
 Potenciar a experiencia no desenvolvimento de software;
 Assimilar o conteudo da Unidade Curricular.
 
-# Problema a explorar
-Gestao de obra de construcao civil
-Gestao de condominios
-Gestao de rendas/imoveis
-Gestao de alojamentos turisticos
-Sistema de gestao e apoio a assistencias por telefone
-Comercio eletronico
-Gestao de jardim zoologico
-Gestao de jardim zoologico
-
 # Problema escolhido a ser confirmado
 Loja online:
 
-Descrição: Crie uma loja online com classes que representam produtos, clientes e pedidos. Implemente recursos como adicionar produtos a um carrinho, calcular o preço total e processar pedidos.
+Descrição: Crie uma loja online com classes que representam produtos, clientes e pedidos. Recursos como adicionar produtos a um carrinho, calcular o preço total e processar pedidos.
 Áreas de Foco: Design de classes, composição, encapsulamento, herança.
+
+# Documentação doxygen
+1. Abrir pasta "Documentation"
+2. Abrir pasta "html"
+3. Abrir ficheiro "index.html"
+

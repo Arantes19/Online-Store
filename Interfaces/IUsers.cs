@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="IUser" company="IPCA">
+*	<copyright file="IUsers" company="IPCA">
 *	</copyright>
 * 	<author>Francisco Arantes</author>
 *	<contact>a23504@alunos.ipca.pt</contact>

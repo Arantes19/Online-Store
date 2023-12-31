@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Interfaces\\Interfaces.csproj",
+      "projectUniqueName": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Interfaces\\Interfaces.csproj",
       "projectName": "Interfaces",
-      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Interfaces\\Interfaces.csproj",
+      "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Interfaces\\Interfaces.csproj",
       "packagesPath": "C:\\Users\\arant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\Interfaces\\obj\\",
+      "outputPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Interfaces\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\arant\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj": {
-              "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_Fase1\\BusinessObjects\\BusinessObjects.csproj"
+            "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\BusinessObjects\\BusinessObjects.csproj": {
+              "projectPath": "C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\BusinessObjects\\BusinessObjects.csproj"
             }
           }
         }

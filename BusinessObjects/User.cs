@@ -9,6 +9,7 @@
 
 namespace BusinessObjects
 {
+    [Serializable]
     /// <summary>
     /// Represents a user in the system.
     /// </summary>

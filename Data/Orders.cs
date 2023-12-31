@@ -127,7 +127,7 @@ namespace Data
             {
                 if (!File.Exists(filename)) return false;
                 Stream stream;
-                using (stream = File.Open(filename, FileMode.Create))
+                using (stream = File.Open(filename, FileMode.Open))
                 {
                     BinaryFormatter b = new BinaryFormatter();
                     b.Serialize(stream, listOrders);
@@ -135,7 +135,7 @@ namespace Data
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw new ReadFileException(e.Message + ": " + "Error Saving File!!!");
@@ -152,8 +152,8 @@ namespace Data
         {
             try
             {
-                Stream stream;
-                using (stream = File.Open(filename, FileMode.Create))
+                string fullPath = Path.Combine("C:\\Users\\arant\\Desktop\\LESI\\2-1\\POO\\3.1\\TrabalhoPOO_23504_FaseInt\\Database", filename);
+                using (Stream stream = File.Open(fullPath, FileMode.Create))
                 {
                     BinaryFormatter b = new BinaryFormatter();
                     b.Serialize(stream, listOrders);
@@ -161,7 +161,7 @@ namespace Data
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw new SaveFileException(e.Message + ": " + "Error Saving File!!!");

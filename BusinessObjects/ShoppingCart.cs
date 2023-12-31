@@ -9,6 +9,7 @@
 
 namespace BusinessObjects
 {
+    [Serializable]
     /// <summary>
     /// Represents the ShoppingCart.
     /// </summary>
