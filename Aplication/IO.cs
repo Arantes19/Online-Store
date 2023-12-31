@@ -22,6 +22,7 @@ namespace Aplication
             
             //Creating random objects
             
+            /*
             List<User> users = new List<User> 
             {
                 new User("francisco@gmail.com", "francisco"),
@@ -72,12 +73,12 @@ namespace Aplication
             {
                 Console.WriteLine(e.Message);
             }
-            
+            */
             #endregion
-
+            
 
             return true;
-
+            
         }
     }
 }

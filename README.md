@@ -24,3 +24,7 @@ Descrição: Crie uma loja online com classes que representam produtos, clientes
 2. Abrir pasta "html"
 3. Abrir ficheiro "index.html"
 
+# Abrir Aplicação
+1. Abrir pasta "Aplication"
+2. Abrir solução
+
