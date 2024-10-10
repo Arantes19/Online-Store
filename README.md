@@ -1,30 +1,27 @@
-# POO - Programacao Orientada a Objetos
-# 2023-2024
+# Online-Store
 
-# Motivacao 
-Pretende-se que sejam desenvolvidas solucoes em C# para problemas reais de complexidade moderada. Serao identificadas classes, definidas estruturas de dados
-e implementados os principais processos que permitam suportar essas solucoes.
-Pretende-se ainda contribuir para a boa redacao de relatorios.
+## Motivation
+The aim is to develop solutions in C# for real-world problems of moderate complexity. Classes will be identified, data structures defined, and the main processes that support these solutions will be implemented.
+We also aim to contribute to the proper writing of reports.
+Objectives
 
-# Objetivos
-Consolidar conceitos basilares do Paradigma Orientado a Objectos;
-Analisar problemas reais;
-Desenvolver capacidades de programacao em C#;
-Potenciar a experiencia no desenvolvimento de software;
-Assimilar o conteudo da Unidade Curricular.
+## Consolidate fundamental concepts of the Object-Oriented Paradigm;
+Analyze real problems;
+Develop programming skills in C#;
+Enhance software development experience;
+Assimilate the content of the Curricular Unit.
 
-# Problema escolhido a ser confirmado
-Loja online:
+## Chosen problem to be confirmed
+### Online store:
+Description: Create an online store with classes representing products, customers, and orders. Features such as adding products to a cart, calculating the total price, and processing orders.
+Focus Areas: Class design, composition, encapsulation, inheritance.
 
-Descrição: Crie uma loja online com classes que representam produtos, clientes e pedidos. Recursos como adicionar produtos a um carrinho, calcular o preço total e processar pedidos.
-Áreas de Foco: Design de classes, composição, encapsulamento, herança.
+## How to check Doxygen documentation:
+1. Open "Documentation" folder
+2. Open "html" folder
+3. Open "index.html" file
 
-# Documentação doxygen
-1. Abrir pasta "Documentation"
-2. Abrir pasta "html"
-3. Abrir ficheiro "index.html"
-
-# Abrir Aplicação
-1. Abrir pasta "Aplication"
-2. Abrir solução
-
+## How to execute the Application:
+1. Open "Application" folder
+2. Open solution
+3. Execute
